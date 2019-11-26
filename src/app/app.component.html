@@ -1,0 +1,96 @@
+<article>
+    <header [ngClass]="{isHome: currentPage==='/' || currentPage==='/home'}">
+        <nav class="pc-nav">
+            <ul class="header-left">
+                <li>
+                    <img class="logo" src="/assets/images/logo.png" alt="logo" routerLink="/home">
+                </li>
+                <li routerLink="/home" [ngClass]="{active: currentPage==='/' || currentPage==='/home'}">
+                    {{'Home' | translate: lang}}</li>
+                <li routerLink="/blocks/page/1" [ngClass]="{active: currentPage.indexOf('/block')>=0}">
+                    {{'Blocks' | translate: lang}}</li>
+                <li routerLink="/transactions/page/1" [ngClass]="{active: currentPage.indexOf('/transaction')>=0}">
+                    {{'Transactions' | translate: lang}}</li>
+                <li routerLink="/addresses/page/1" [ngClass]="{active: currentPage.indexOf('/address')>=0}">
+                    {{'Addresses' | translate: lang}}</li>
+                <li routerLink="/assets/page/1"
+                    [ngClass]="{active: currentPage.indexOf('/asset')>=0 || currentPage.indexOf('/nep5/')>=0}">
+                    {{'Assets' | translate: lang}}</li>
+            </ul>
+            <ul class="header-right">
+                <li class="search"><img src="/assets/images/search.png" (click)="search()" alt="search"><input
+                        type="text" [placeholder]="'Block Height, Hash, Address or Transaction id' | translate: lang"
+                        [(ngModel)]="searchVal" (keyup.enter)="search()"></li>
+                <li class="lang"><span [ngClass]="{active: lang === 'en'}" (click)="changeLang('en')">EN</span><span
+                        [ngClass]="{active: lang === 'zh'}" (click)="changeLang('zh')">中文</span>
+                </li>
+                <li class="net"><span [ngClass]="{active: net === 'mainnet'}"
+                        (click)="changeNet('mainnet')">{{'MainNet' | translate: lang}}</span><span
+                        [ngClass]="{active: net === 'testnet'}"
+                        (click)="changeNet('testnet')">{{'TestNet' | translate: lang}}</span></li>
+            </ul>
+        </nav>
+        <nav class="ipad-nav">
+            <img class="logo" src="/assets/images/logo.png" alt="logo" routerLink="/home">
+            <ul>
+                <li routerLink="/home" [ngClass]="{active: currentPage==='/' || currentPage==='/home'}">
+                    {{'Home' | translate: lang}}</li>
+                <li routerLink="/blocks/page/1" [ngClass]="{active: currentPage.indexOf('block')>=0}">
+                    {{'Blocks' | translate: lang}}</li>
+                <li routerLink="/transactions/page/1" [ngClass]="{active: currentPage.indexOf('/transaction')>=0}">
+                    {{'Transactions' | translate: lang}}</li>
+                <li routerLink="/addresses/page/1" [ngClass]="{active: currentPage.indexOf('/address')>=0}">
+                    {{'Addresses' | translate: lang}}</li>
+                <li routerLink="/assets/page/1"
+                    [ngClass]="{active: currentPage.indexOf('/asset')>=0 || currentPage.indexOf('/nep5/')>=0}">
+                    {{'Assets' | translate: lang}}</li>
+            </ul>
+        </nav>
+        <nav class="mobile-nav">
+            <img src="/assets/images/back.svg" alt="" (click)="back()" class="back" [ngClass]="{hide: showBack === false}">
+            <img class="logo" src="/assets/images/logo.png" alt="logo" routerLink="/home">
+            <div class="menu">
+                <img src="/assets/images/menu.svg" alt="" (click)="showDropdown = !showDropdown">
+                <section [ngClass]="{showDropdown: showDropdown}" (click)="showDropdown = false"></section>
+                <ul [ngClass]="{showDropdown: showDropdown}">
+                    <li (click)="showDropdown = false" routerLink="/home"
+                        [ngClass]="{active: currentPage==='/' || currentPage==='/home'}">
+                        {{'Home' | translate: lang}}</li>
+                    <li (click)="showDropdown = false" routerLink="/blocks/page/1"
+                        [ngClass]="{active: currentPage.indexOf('block')>=0}">
+                        {{'Blocks' | translate: lang}}</li>
+                    <li (click)="showDropdown = false" routerLink="/transactions/page/1"
+                        [ngClass]="{active: currentPage.indexOf('/transaction')>=0}">
+                        {{'Transactions' | translate: lang}}</li>
+                    <li (click)="showDropdown = false" routerLink="/addresses/page/1"
+                        [ngClass]="{active: currentPage.indexOf('/address')>=0}">
+                        {{'Addresses' | translate: lang}}</li>
+                    <li (click)="showDropdown = false" routerLink="/assets/page/1"
+                        [ngClass]="{active: currentPage.indexOf('/asset')>=0 || currentPage.indexOf('/nep5/')>=0}">
+                        {{'Assets' | translate: lang}}</li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <section class="content" [ngClass]="{isNotHome: currentPage!=='/' && currentPage!=='/home'}">
+        <router-outlet></router-outlet>
+    </section>
+
+    <footer>
+        <div class="lang-net">
+            <div class="left">
+                <div class="lang"><span [ngClass]="{active: lang === 'en'}" (click)="changeLang('en')">EN</span><span
+                        [ngClass]="{active: lang === 'zh'}" (click)="changeLang('zh')">中文</span>
+                </div>
+            </div>
+            <div class="right">
+                <div class="net"><span [ngClass]="{active: net === 'mainnet'}"
+                        (click)="changeNet('mainnet')">{{'MainNet' | translate: lang}}</span><span
+                        [ngClass]="{active: net === 'testnet'}"
+                        (click)="changeNet('testnet')">{{'TestNet' | translate: lang}}</span></div>
+            </div>
+        </div>
+        <p>© {{copyRightYear}} neotube.io</p>
+    </footer>
+</article>

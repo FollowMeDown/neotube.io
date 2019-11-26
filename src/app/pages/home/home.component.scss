@@ -1,0 +1,174 @@
+.welcome {
+    background: #e2e2e2;
+    height: calc(50vh - 70px);
+    min-height: 320px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    @media screen and (max-width: 1050px) {
+        padding: 0 30px;
+    }
+    @media screen and (max-width: 420px) {
+        padding: 0 10px;
+        min-height: auto;
+        height: 240px;
+        background: rgba(245, 245, 245, 1);
+    }
+    h2 {
+        font-size: 38px;
+        font-weight: 500;
+        color: rgba(33, 37, 41, 1);
+        margin-bottom: 19px;
+        @media screen and (max-width: 420px) {
+            margin-bottom: 12px;
+        }
+    }
+    p {
+        font-size: 24px;
+        font-weight: 400;
+        color: rgba(33, 37, 41, 1);
+        margin-bottom: 60px;
+        @media screen and (max-width: 420px) {
+            margin-bottom: 30px;
+        }
+    }
+    .search {
+        width: 100%;
+        max-width: 800px;
+        height: 60px;
+        position: relative;
+        @media screen and (max-width: 420px) {
+            height: 50px;
+        }
+        img {
+            position: absolute;
+            left: 8px;
+            top: 50%;
+            margin-top: -13px;
+            width: 26px;
+            cursor: pointer;
+        }
+        input {
+            width: 100%;
+            height: 100%;
+            padding-left: 53px;
+            padding-right: 11px;
+            font-size: 18px;
+            background: rgba(255, 255, 255, 1);
+            border: 1px solid rgba(191, 191, 191, 1);
+            border-radius: 4px;
+            color: #282828;
+            @media screen and (max-width: 420px) {
+                font-size: 16px;
+            }
+            &::placeholder {
+                opacity: 0.5;
+                color: #bfbfbf;
+            }
+        }
+    }
+}
+
+section.all-count {
+    min-height: calc(50vh - 100px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    ul {
+        width: 100%;
+        max-width: 1270px;
+        padding: 36px 70px;
+        text-align: center;
+        @media screen and (max-width: 1050px) {
+            padding: 36px 30px;
+        }
+        @media screen and (max-width: 420px) {
+            padding: 36px 10px;
+        }
+        li {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 0 15px;
+            width: 24.25%;
+            // max-width: 276px;
+            height: 190px;
+            cursor: pointer;
+            background: rgba(255, 255, 255, 1);
+            box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+            @media screen and (max-width: 420px) {
+                height: 150px;
+            }
+            &:hover {
+                box-shadow: 0px 8px 17px 0px rgba(0, 0, 0, 0.14);
+            }
+            &:not(:last-child) {
+                margin-right: 1%;
+            }
+            p {
+                line-height: 100%;
+                font-weight: 500;
+            }
+            p:first-child {
+                font-size: 20px;
+                color: rgba(40, 40, 40, 1);
+                margin-bottom: 30px;
+            }
+            p:last-child {
+                font-size: 36px;
+                color: rgba(0, 175, 146, 1);
+                min-height: 1em;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    section.all-count ul li {
+        width: 49.2%;
+        &:not(:last-child) {
+            margin-right: 0;
+        }
+        &:nth-child(2n + 1) {
+            margin-right: 1.6%;
+        }
+        &:nth-child(-n + 2) {
+            margin-bottom: 10px;
+        }
+    }
+
+    .welcome h2,
+    section.all-count ul li p:last-child {
+        font-size: 30px;
+    }
+
+    .welcome p {
+        font-size: 26px;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .welcome h2,
+    section.all-count ul li p:last-child {
+        font-size: 24px;
+    }
+
+    .welcome p {
+        font-size: 20px;
+    }
+    section.all-count ul li p:first-child {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    section.all-count ul li {
+        width: 100%;
+        &:not(:last-child) {
+            margin-bottom: 8px;
+        }
+    }
+}

@@ -1,0 +1,30 @@
+<section class="page-content">
+    <h2 class="header-title">{{ 'Blocks' | translate: lang }}</h2>
+    <div class="page-table">
+        <app-loading *ngIf="loading"></app-loading>
+        <table>
+            <thead>
+                <tr>
+                    <th>{{ 'Block index' | translate: lang }}</th>
+                    <th>{{ 'Transactions' | translate: lang }}</th>
+                    <th class="hidden">{{ 'Time' | translate: lang }}</th>
+                    <th class="hidden">{{ 'Size' | translate: lang }}</th>
+                    <th class="addr-min-width hidden">Validator</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of displayDataList; index as index">
+                    <td class="td-link-btn"><a class="link-btn" routerLink="/block/{{item?.index}}/page/1">{{item?.index | number}}</a></td>
+                    <td>{{item?.txNum | number}}</td>
+                    <td class="hidden">{{item?.time | unixTime: lang}}</td>
+                    <td class="hidden">{{item?.size | number}} Bytes</td>
+                    <td class="hidden td-link-btn addr-min-width over-ellipsis-link"><a class="link-btn"
+                            routerLink="/address/{{item?.nextConsensus}}/page/1">{{item?.nextConsensus}}</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <app-paginator [pageIndex]="page.index" [pageSize]="page.size" [pageLength]="page.length"
+        (onpageGo)="onpageGo($event)">
+    </app-paginator>
+</section>

@@ -1,0 +1,27 @@
+<section class="welcome">
+    <h2>{{ 'Welcome to NeoTube' | translate: lang }}</h2>
+    <p>{{ 'Fast, correct handy NEO blockchain information platform' | translate: lang }}</p>
+    <div class="search"><img src="/assets/images/search.png" alt="search" (click)="search()"><input type="text"
+            [placeholder]="'Block Height, Hash, Address or Transaction id' | translate: lang" [(ngModel)]="searchVal" (keyup.enter)="search()">
+    </div>
+</section>
+<section class="all-count">
+    <ul>
+        <li routerLink="/blocks/page/1">
+            <p>{{ 'Total Blocks' | translate: lang }}</p>
+            <p>{{ total?.blockCounts | number }}</p>
+        </li>
+        <li routerLink="/assets/page/1">
+            <p>{{ 'Total Assets' | translate: lang }}</p>
+            <p>{{ total?.assetCounts | number }}</p>
+        </li>
+        <li routerLink="/transactions/page/1">
+            <p>{{ 'Total Transactions' | translate: lang }}</p>
+            <p>{{ total?.txCounts | number }}</p>
+        </li>
+        <li routerLink="/addresses/page/1">
+            <p>{{ 'Total Addresses' | translate: lang }}</p>
+            <p>{{ total?.addressCounts | number }}</p>
+        </li>
+    </ul>
+</section>

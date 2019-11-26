@@ -1,0 +1,19 @@
+<div class="paginator" *ngIf="pageLength > 1">
+    <div class="pager-info" disabled="disabled">
+        <label>{{ 'No' | translate: lang }}</label><span>&nbsp;{{ pageIndex | number }}&nbsp;</span>{{ 'page,' | translate: lang }}
+        <label>{{ 'of' | translate: lang }}</label><span>&nbsp;{{ pageLength | number }}&nbsp;</span>{{ 'page' | translate: lang }}
+    </div>
+
+    <button class="pager pager-item" [disabled]="pageIndex <= 1 || pageLength <= 1"
+        [ngClass]="(pageIndex <= 1 || pageLength <= 1) ? 'notAllowed' : 'pointer'" (click)="prev()">{{ 'Previous' | translate: lang }}</button>
+    <div class="hidden">
+        <button class="pager-item" [disabled]="groupBase <= 1" [ngClass]="groupBase <= 1 ? 'notAllowed' : 'pointer'"
+            (click)="groupPrev()">&lt;&lt;</button>
+        <div class="pager-main pointer pager-item" *ngFor="let num of list" [ngClass]="{active: pageIndex === num}"
+            (click)="jump(num)">{{ num | number }}</div>
+        <button class="pager-item" [disabled]="groupBase >= maxGroup"
+            [ngClass]="groupBase >= maxGroup ? 'notAllowed' : 'pointer'" (click)="groupNext()">&gt;&gt;</button>
+    </div>
+    <button class="pager pager-item pager-right" [disabled]="pageIndex >= pageLength"
+        [ngClass]="pageIndex >= pageLength ? 'notAllowed' : 'pointer'" (click)="next()">{{ 'Next' | translate: lang }}</button>
+</div>

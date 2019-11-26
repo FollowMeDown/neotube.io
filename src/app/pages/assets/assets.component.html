@@ -1,0 +1,37 @@
+<section class="page-content">
+    <h2 class="header-title">Assets</h2>
+    <div class="page-table">
+        <app-loading *ngIf="loading"></app-loading>
+        <table>
+            <thead>
+                <tr>
+                    <th>{{ 'Asset' | translate: lang }}</th>
+                    <th>{{ 'Type' | translate: lang }}</th>
+                    <th class="hidden">{{ 'Supply' | translate: lang }}</th>
+                    <th class="hidden">{{ 'Addresses' | translate: lang }}</th>
+                    <th class="hidden">{{ 'Transactions' | translate: lang }}</th>
+                    <th class="hidden">{{ 'Registered' | translate: lang }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of displayDataList; index as index">
+                    <td *ngIf="item?.type !== 'nep5'" class="td-link-btn"><a class="link-btn"
+                            routerLink="/asset/{{item?.assetId}}/page/1">{{ item?.name }}</a>
+                    </td>
+                    <td *ngIf="item?.type === 'nep5'" class="td-link-btn"><a class="link-btn"
+                            routerLink="/nep5/{{item?.assetId}}/page/1">{{ item?.name }}</a>
+                    </td>
+                    <td [appAssetColor]="item?.type">{{ item?.type }}</td>
+                    <td class="hidden">{{ item?.supply | unlimitedNumber: lang }}</td>
+                    <td class="hidden">{{ item?.addresses | number }}</td>
+                    <td class="hidden">{{ item?.transactions | number }}</td>
+                    <td class="hidden td-link-btn"><a class="link-btn"
+                            routerLink="/address/{{item?.registered}}/page/1">{{ item?.registered }}</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <app-paginator [pageIndex]="page.index" [pageSize]="page.size" [pageLength]="page.length"
+        (onpageGo)="onpageGo($event)">
+    </app-paginator>
+</section>

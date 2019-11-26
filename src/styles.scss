@@ -1,0 +1,33 @@
+/* You can add global styles to this file, and also import other style files */
+@import '../src/styles/table.scss';
+@import '../src/styles/page.scss';
+@import '../src/styles/tx-list';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+*:focus {
+    outline: none;
+}
+
+html,
+body {
+    font-family: PingFang SC, Helvetica, Tahoma, Arial, STXihei, '华文细黑', 'Microsoft YaHei', '微软雅黑', 'WenQuanYi Micro Hei', sans-serif;
+}
+
+button {
+    outline: none;
+    border: none;
+}
+
+input {
+    outline: none;
+    background: none;
+}
+
+li {
+    list-style: none;
+}

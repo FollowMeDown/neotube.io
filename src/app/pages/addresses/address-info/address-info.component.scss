@@ -1,0 +1,98 @@
+.assets-info {
+    width: 100%;
+    list-style: none;
+    li {
+        border-radius: 3px;
+        text-align: center;
+        background: #fff;
+        vertical-align: middle;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        div {
+            width: 100%;
+            padding: 0 15px;
+            p.data {
+                color: #282828;
+                word-wrap: break-word;
+                margin-bottom: 20px;
+            }
+            p.name {
+                word-wrap: break-word;
+                color: #ACACAC;
+            }
+        }
+    }
+    li.textmiddle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+@media screen and (min-width: 1100px) {
+    .assets-info li p.data {
+        font-size: 28px;
+    }
+}
+@media screen and (max-width: 1099px) {
+    .assets-info li p.data {
+        font-size: 22px;
+    }
+}
+@media screen and (min-width: 870px) {
+    .assets-info {
+        li {
+            margin-bottom: 10px;
+            width: 32.66%;
+            height: 180px;
+            &:not(:nth-child(3n)) {
+                margin-right: 1%;
+            }
+            p.name {
+                font-size: 16px;
+            }
+        }
+    }
+}
+@media screen and (max-width: 869px) {
+    .assets-info {
+        li {
+            margin-bottom: 8px;
+            width: 49.2%;
+            height: 160px;
+            &:not(:nth-child(2n)) {
+                margin-right: 1.6%;
+            }
+            p.name {
+                font-size: 14px;
+            }
+        }
+    }
+}
+@media screen and (max-width: 600px) {
+    .assets-info li p.data {
+        font-size: 16px;
+    }
+}
+@media screen and (min-width: 420px) {
+    .header-title-info {
+        font-size: 30px;
+    }
+}
+@media screen and (max-width: 419px) {
+    .header-title-info {
+        font-size: 22px;
+    }
+}
+@media screen and (max-width: 418px) {
+    .assets-info {
+        li {
+            width: 100%;
+            &:not(:last-child) {
+                margin-bottom: 8px;
+            }
+        }
+    }
+}

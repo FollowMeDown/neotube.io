@@ -1,0 +1,62 @@
+<section class="page-content">
+    <div class="header-title-group">
+        <p class="header-title-info">{{ 'Asset information' | translate: lang }}</p>
+        <p class="header-title-address over-ellipsis">{{ assetId }}</p>
+    </div>
+    <ul class="address-info">
+        <li class="width-half"><label>{{ 'Name' | translate: lang }}</label>{{ assetInfo?.name }}</li>
+        <li class="width-half"><label>{{ 'Total supply' | translate: lang }}</label>{{ assetInfo?.amount | unlimitedNumber: lang }}</li>
+        <li class="width-half"><label>{{ 'Type' | translate: lang }}</label>{{ assetInfo?.type }}</li>
+        <li class="width-half"><label>{{ 'Addresses' | translate: lang }}</label>{{ assetInfo?.addresses | number }}</li>
+        <li class="width-half"><label>{{ 'Blocks' | translate: lang }}</label><span class="link-btn"
+                routerLink="/block/{{assetInfo?.blockIndex}}/page/1">{{ assetInfo?.blockIndex | number }}</span></li>
+        <li class="width-half"><label>{{ 'Transactions' | translate: lang }}</label>{{ assetInfo?.transactions | number }}</li>
+        <li class="width-half"><label>{{ 'Precision' | translate: lang }}</label>{{ assetInfo?.precision }}</li>
+        <li class="width-half" *ngIf="assetInfo?.type === 'nep5'"><label>{{ 'Symbol' | translate: lang }}</label>{{ assetInfo?.symbol }}
+        </li>
+        <li class="width-half" *ngIf="assetInfo?.type !== 'nep5'">
+            <label>{{ 'Created' | translate: lang }}</label>{{ assetInfo?.time * 1000 | date: 'yyyy-MM-dd' }}</li>
+        <li class="width-all"><label>{{ 'Owner' | translate: lang }}</label><span class="link-btn over-ellipsis"
+                routerLink="/address/{{assetInfo?.admin}}/page/1">{{ assetInfo?.admin }}</span></li>
+        <li class="width-all"><label>{{ 'AssetId' | translate: lang }}</label><span class="over-ellipsis">{{ assetInfo?.assetId }}</span>
+        </li>
+        <li class="width-all" *ngIf="assetInfo?.type === 'nep5'"><label>{{ 'TransactionId' | translate: lang }}</label><span
+                class="link-btn over-ellipsis" routerLink="/transaction/{{assetInfo?.txid}}">{{ assetInfo?.txid }}</span>
+        </li>
+    </ul>
+    <h2 class="header-title" *ngIf="assetInfo?.type === 'nep5'">{{ 'Asset register information' | translate: lang }}</h2>
+    <ul class="address-info" *ngIf="assetInfo?.type === 'nep5'">
+        <li class="width-half"><label>{{ 'Name' | translate: lang }}</label>{{ assetRegisterInfo?.name }}</li>
+        <li class="width-half"><label>{{ 'Version' | translate: lang }}</label>{{ assetRegisterInfo?.version }}</li>
+        <li class="width-half"><label>{{ 'Author' | translate: lang }}</label>{{ assetRegisterInfo?.author }}</li>
+        <li class="width-half"><label>{{ 'Email' | translate: lang }}</label>{{ assetRegisterInfo?.email }}</li>
+        <li class="width-all"><label>{{ 'Description' | translate: lang }}</label><span
+                class="des-content">{{ assetRegisterInfo?.description }}</span></li>
+    </ul>
+    <div *ngIf="displayDataList">
+        <h2 class="header-title"><span>{{ 'Balance rank' | translate: lang }}</span>({{ 100 > page.total ? page.total : 100 }})</h2>
+        <div class="page-table">
+            <app-loading *ngIf="loading"></app-loading>
+            <table>
+                <thead>
+                    <tr>
+                        <th>{{ 'Rank' | translate: lang }}</th>
+                        <th class="addr-min-width">{{ 'Address' | translate: lang }}</th>
+                        <th class="hidden">{{ 'Balance' | translate: lang }}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of displayDataList; index as index">
+                        <td>{{ index + 1 + (page.index - 1) * page.size }}</td>
+                        <td class="addr-min-width td-link-btn over-ellipsis"><a class="link-btn"
+                                routerLink="/address/{{item?.address}}/page/1">{{ item?.address }}</a></td>
+                        <td class="hidden">{{ item?.balance | unlimitedNumber: lang }}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <app-paginator [pageIndex]="page.index" [pageSize]="page.size" [pageLength]="page.length"
+                (onpageGo)="onpageGo($event)">
+            </app-paginator>
+        </div>
+    </div>
+</section>

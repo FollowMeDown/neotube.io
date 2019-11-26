@@ -1,0 +1,28 @@
+<section class="page-content">
+    <h2 class="header-title">{{ 'Addresses' | translate: lang }}</h2>
+    <div class="page-table">
+        <app-loading *ngIf="loading"></app-loading>
+        <table>
+            <thead>
+                <tr>
+                    <th class="addr-min-width">{{ 'Address' | translate: lang }}</th>
+                    <th>{{ 'First transaction' | translate: lang }}</th>
+                    <th class="hidden">{{ 'Last transaction' | translate: lang }}</th>
+                    <th class="hidden">{{ 'Transactions' | translate: lang }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of displayDataList; index as index">
+                    <td class="addr-min-width td-link-btn"><a class="link-btn"
+                            routerLink="/address/{{item?.address}}/page/1">{{ item?.address }}</a></td>
+                    <td>{{ item?.createdAt | unixTime: lang }}</td>
+                    <td class="hidden">{{ item?.lastTransactionTime | unixTime: lang }}</td>
+                    <td class="hidden">{{ item?.transAsset + item?.transNep5 | number }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <app-paginator [pageIndex]="page.index" [pageSize]="page.size" [pageLength]="page.length"
+        (onpageGo)="onpageGo($event)">
+    </app-paginator>
+</section>

@@ -1,0 +1,108 @@
+<section class="page-content">
+    <div class="header">
+        <h2 class="heaer-title">{{ 'Transactions' | translate: lang }}</h2>
+        <div class="transType">
+            <div (click)="showDropdown = !showDropdown">
+                {{transType | transType}}
+                <img src="/assets/images/down.svg" alt="">
+            </div>
+            <section [ngClass]="{showDropdown: showDropdown}" (click)="showDropdown = false"></section>
+            <ul [ngClass]="{showDropdown: showDropdown}">
+                <li (click)="changeTransType('all')">Any</li>
+                <li (click)="changeTransType('ContractTransaction')">Contract</li>
+                <li (click)="changeTransType('InvocationTransaction')">Invocation</li>
+                <li (click)="changeTransType('ClaimTransaction')">Claim</li>
+                <li (click)="changeTransType('MinerTransaction')">Miner</li>
+                <li (click)="changeTransType('RegisterTransaction')">Register</li>
+                <li (click)="changeTransType('IssueTransaction')">Issue</li>
+                <li (click)="changeTransType('EnrollmentTransaction')">Enrollment</li>
+                <li (click)="changeTransType('PublishTransaction')">Publish</li>
+            </ul>
+        </div>
+    </div>
+    <div class="tran-list">
+        <app-loading *ngIf="loading"></app-loading>
+        <div class="row-head">
+            <div class="col">{{ 'TXID' | translate: lang }}</div>
+            <div class="col">{{ 'Type' | translate: lang }}</div>
+            <div class="col hidden">{{ 'Size' | translate: lang }}</div>
+            <div class="col hidden">{{ 'Version' | translate: lang }}</div>
+            <div class="col hidden">{{ 'Time' | translate: lang }}</div>
+            <div class="hidden col-icon-empty"></div>
+        </div>
+        <div class="warpper" *ngFor="let item of displayDataList; index as index">
+            <div class="row">
+                <div class="col td-link-btn"><a class="link-btn"
+                        routerLink="/transaction/{{item?.txid}}">{{ item?.txid }}</a></div>
+                <div class="col" [appTransColor]="item?.type">{{ item?.type | transType }}</div>
+                <div class="col hidden">{{ item?.size | number }} Bytes</div>
+                <div class="col hidden">{{ item?.version }}</div>
+                <div class="col hidden">{{ item?.blockTime | unixTime: lang }}</div>
+                <div class="hidden col-icon" (click)="showInfo(index, item?.txid)"><img
+                        [ngClass]="{active: show[index]}" src="/assets/images/down.svg"></div>
+            </div>
+            <div class="tran-info" *ngIf="show[index] && (transfer[index] || transferNep5[index])">
+                <div class="tran-info-from">
+                    <p class="info-title"
+                        *ngIf="(transfer[index] && transfer[index]?.TxUTXO !== null) || (transferNep5[index] && transferNep5[index][0]?.from !== '')">
+                        {{ 'Sent from' | translate: lang }}</p>
+                    <div *ngIf="transfer[index] && transfer[index]?.TxUTXO !== null">
+                        <div *ngFor="let txUTXO of transfer[index]?.TxUTXO">
+                            <div class="info-address"><a class="link-btn"
+                                    routerLink="/address/{{txUTXO?.address}}/page/1">{{ txUTXO?.address }}</a>
+                            </div>
+                            <div class="info-amount">
+                                <span>{{ txUTXO?.value | unlimitedNumber: lang }}</span>&nbsp;
+                                <span class="link-btn"
+                                    routerLink="/asset/{{txUTXO?.assetId}}/page/1">{{ txUTXO?.name }}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf="transferNep5[index] && transferNep5[index][0]?.from !== ''">
+                        <div *ngFor="let txfrom of transferNep5[index]">
+                            <div class="info-address"><a class="link-btn"
+                                    routerLink="/address/{{txfrom?.from}}/page/1">{{ txfrom?.from }}</a></div>
+                            <div class="info-amount">
+                                <span>{{ txfrom?.value | unlimitedNumber: lang }}</span>&nbsp;
+                                <span class="link-btn"
+                                    routerLink="/nep5/{{txfrom?.assetId}}/page/1">{{ txfrom?.name }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tran-info-icon"><img src="/assets/images/img-arrow.png" alt=""></div>
+                <div class="tran-info-to">
+                    <p class="info-title"
+                        *ngIf="(transfer[index] && transfer[index]?.TxVouts !== null) || (transferNep5[index] && transferNep5[index][0]?.to !== '')">
+                        {{ 'Sent to' | translate: lang }}</p>
+                    <div *ngIf="transfer[index] && transfer[index]?.TxVouts !== null">
+                        <div *ngFor="let txVout of transfer[index]?.TxVouts">
+                            <div class="info-address"><a class="link-btn"
+                                    routerLink="/address/{{txVout?.address}}/page/1">{{ txVout?.address }}</a>
+                            </div>
+                            <div class="info-amount">
+                                <span>{{ txVout?.value | unlimitedNumber: lang }}</span>&nbsp;
+                                <span class="link-btn"
+                                    routerLink="/asset/{{txVout?.assetId}}/page/1">{{ txVout?.name }}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf="transferNep5[index] && transferNep5[index][0]?.to !== ''">
+                        <div *ngFor="let txto of transferNep5[index]">
+                            <div class="info-address"><a class="link-btn"
+                                    routerLink="/address/{{txto?.to}}/page/1">{{ txto?.to }}</a></div>
+                            <div class="info-amount">
+                                <span>{{ txto?.value | unlimitedNumber: lang }}</span>&nbsp;
+                                <span class="link-btn"
+                                    routerLink="/nep5/{{txto?.assetId}}/page/1">{{ txto?.name }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <app-paginator [pageIndex]="page.index" [pageSize]="page.size" [pageLength]="page.length"
+        (onpageGo)="onpageGo($event)">
+    </app-paginator>
+</section>
