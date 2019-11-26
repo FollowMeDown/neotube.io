@@ -57,45 +57,6 @@ export class AddressInfoComponent implements OnInit, OnDestroy {
                 this.router.navigateByUrl('/notfound');
             }
         });
-        // this.myChart = new Chart('myChart', {
-        //     type: 'line',
-        //     data: {
-        //         datasets: [{
-        //             data: [
-        //                 {
-        //                     x: new Date(),
-        //                     y: 20
-        //                 },
-        //                 {
-        //                     x: new Date(),
-        //                     y: 10
-        //                 }
-        //             ]
-        //         }]
-        //     },
-        //     options: {
-        //         maintainAspectRatio: false,
-        //         legend: {
-        //             display: false
-        //         },
-        //         scales: {
-        //             xAxes: [{
-        //                 type: 'time',
-        //                 time: {
-        //                     unit: 'day'
-        //                 }
-        //             }]
-        //         },
-        //         elements: {
-        //             line: {
-        //                 fill: false,
-        //                 borderWidth: 2,
-        //                 borderColor: '#00af92',
-        //                 tension: 0 // 禁用贝塞尔曲线
-        //             }
-        //         }
-        //     }
-        // });
     }
 
     ngOnDestroy() {
@@ -108,6 +69,7 @@ export class AddressInfoComponent implements OnInit, OnDestroy {
         this.initShow();
         this.getAddrAssets();
         this.getListData();
+        this.getGasList();
     }
 
     initShow() {
@@ -126,6 +88,57 @@ export class AddressInfoComponent implements OnInit, OnDestroy {
             this.getTransferByTxid(index, txid);
             this.getNep5TransferByTxid(index, txid);
         }
+    }
+
+    getGasList() {
+        this.myChart = new Chart('myChart', {
+            type: 'line',
+            data: {
+                datasets: [{
+                    data: [
+                        {
+                            x: '2019-1-1',
+                            y: 20
+                        },
+                        {
+                            x: '2019-2-1',
+                            y: 10
+                        }
+                    ]
+                }]
+            },
+            options: {
+                maintainAspectRatio: false,
+                legend: {
+                    display: false
+                },
+                tooltips: {
+                    // bodyFontColor: '#00af92',
+                    multiKeyBackground: '#00af92'
+                },
+                scales: {
+                    xAxes: [{
+                        type: 'time',
+                        gridLines: {
+                            display: false
+                        },
+                        time: {
+                            displayFormats: {
+                                day: 'YYYY-MM-DD'
+                            }
+                        }
+                    }]
+                },
+                elements: {
+                    line: {
+                        fill: false,
+                        borderWidth: 2,
+                        borderColor: '#00af92',
+                        tension: 0 // 禁用贝塞尔曲线
+                    }
+                }
+            }
+        });
     }
 
     getAddrAssets() {
