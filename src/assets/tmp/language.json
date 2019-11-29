@@ -3,6 +3,18 @@
         "en": "Home",
         "zh": "首页"
     },
+    "Days": {
+        "en": "Days",
+        "zh": "天"
+    },
+    "Last 30 days transactions": {
+        "en": "Last 30 days transactions",
+        "zh": "最近 30 天余额变化"
+    },
+    "Last 90 days transactions": {
+        "en": "Last 90 days transactions",
+        "zh": "最近 90 天余额变化"
+    },
     "Transactions": {
         "en": "Transactions",
         "zh": "交易"

@@ -34,6 +34,10 @@ export class ApiService {
         return this.http.post(`${this.apiDo}/api/asset`, { method: 'getaddrassets', params: [address] });
     }
 
+    public GetAssetsHistorybyAddress(address, option): Observable<any> {
+        return this.http.post(`${this.apiDo}/api/asset`, { method: 'history', params: [address, option] });
+    }
+
     // asset
     public GetAllAssets(pageIndex, pageSize): Observable<any> {
         return this.http.post(`${this.apiDo}/api/asset`, { method: 'getallassets', params: [pageIndex, pageSize] });

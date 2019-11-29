@@ -29,6 +29,6 @@
         height: 30px;
         background: url('/assets/images/loading.svg');
         @include bg;
-        animation: spin 1000ms infinite linear;
+        animation: spin 600ms infinite linear;
     }
 }

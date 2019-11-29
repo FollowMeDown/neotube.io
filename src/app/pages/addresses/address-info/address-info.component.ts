@@ -15,7 +15,11 @@ export class AddressInfoComponent implements OnInit, OnDestroy {
     loading = false;
     lang;
     langSub: Subscription;
+
+    // asset history
     myChart;
+    chartOption = 30;
+    chartData = {}; // chartData.30: 30天数据，chartData.90: 90 天数据
 
     transfer: any = [];
     transferNep5: any = [];
@@ -90,44 +94,84 @@ export class AddressInfoComponent implements OnInit, OnDestroy {
         }
     }
 
+    getGasChartData(option) {
+        if (option === this.chartOption) {
+            return;
+        }
+        this.chartOption = option;
+        this.getGasList();
+    }
+
     getGasList() {
+        if (this.chartData.hasOwnProperty(this.chartOption)) {
+            this.myChart.data.datasets[0].data = this.chartData[this.chartOption];
+            this.myChart.update();
+        } else {
+            this.apiService.GetAssetsHistorybyAddress(this.address, this.chartOption).subscribe((res: any) => {
+                if (res.code === 200) {
+                    this.chartData[this.chartOption] = this.handleChartData(res.result);
+                    if (this.myChart) {
+                        this.myChart.data.datasets[0].data = this.chartData[this.chartOption];
+                        this.myChart.update();
+                    } else {
+                        this.initChart(this.chartData[this.chartOption]);
+                    }
+                }
+            });
+        }
+    }
+
+    handleChartData(data) {
+        const targetData = [];
+        const currentDay = this.formatDate(new Date().getTime() / 1000) + ' 00:00:00';
+        const currentTime = new Date(currentDay).getTime() / 1000;
+        const startTime = currentTime - (this.chartOption - 1) * 24 * 3600;
+        if (data === null) {
+            targetData.push({ x: this.formatDate(startTime) });
+            targetData.push({ x: this.formatDate(currentTime) });
+        } else {
+            for (let i = 0, j = 0; i < this.chartOption; i++) {
+                const leftTime = startTime + i * 24 * 3600;
+                if (leftTime < data[j].recordTime) {
+                    targetData[i] = { x: this.formatDate(leftTime), y: i === 0 ? 0 : targetData[i - 1].y };
+                } else if (leftTime === data[j].recordTime) {
+                    targetData[i] = { x: this.formatDate(data[j].recordTime), y: Number(data[j].balance) };
+                    j++;
+                }
+            }
+        }
+        return targetData;
+    }
+
+    formatDate(time) {
+        const date = new Date(time * 1000);
+        return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
+    }
+
+    initChart(data) {
         this.myChart = new Chart('myChart', {
             type: 'line',
             data: {
-                datasets: [{
-                    data: [
-                        {
-                            x: '2019-1-1',
-                            y: 20
-                        },
-                        {
-                            x: '2019-2-1',
-                            y: 10
-                        }
-                    ]
-                }]
+                datasets: [{ data }]
             },
             options: {
                 maintainAspectRatio: false,
-                legend: {
-                    display: false
-                },
+                legend: { display: false },
                 tooltips: {
+                    intersect: false,
                     // bodyFontColor: '#00af92',
                     multiKeyBackground: '#00af92'
                 },
                 scales: {
-                    xAxes: [{
-                        type: 'time',
-                        gridLines: {
-                            display: false
-                        },
-                        time: {
-                            displayFormats: {
-                                day: 'YYYY-MM-DD'
-                            }
+                    xAxes: [
+                        {
+                            type: 'time',
+                            gridLines: { display: false },
+                            ticks: { maxTicksLimit: window.innerWidth < 500 ? 10 : 30 },
+                            time: { displayFormats: { day: 'YYYY-MM-DD' } }
                         }
-                    }]
+                    ],
+                    yAxes: [{ ticks: { min: 0 } }]
                 },
                 elements: {
                     line: {
