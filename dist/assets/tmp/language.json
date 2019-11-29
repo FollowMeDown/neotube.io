@@ -1,0 +1,286 @@
+{
+    "Home": {
+        "en": "Home",
+        "zh": "首页"
+    },
+    "Days": {
+        "en": "Days",
+        "zh": "天"
+    },
+    "Last 30 days transactions": {
+        "en": "Last 30 days transactions",
+        "zh": "最近 30 天余额变化"
+    },
+    "Last 90 days transactions": {
+        "en": "Last 90 days transactions",
+        "zh": "最近 90 天余额变化"
+    },
+    "Transactions": {
+        "en": "Transactions",
+        "zh": "交易"
+    },
+    "Blocks": {
+        "en": "Blocks",
+        "zh": "区块"
+    },
+    "Addresses": {
+        "en": "Addresses",
+        "zh": "地址"
+    },
+    "Assets": {
+        "en": "Assets",
+        "zh": "资产"
+    },
+    "MainNet": {
+        "en": "MainNet",
+        "zh": "主网"
+    },
+    "TestNet": {
+        "en": "TestNet",
+        "zh": "测试网"
+    },
+    "Block Height, Hash, Address or Transaction id": {
+        "en": "Block Height, Hash, Address or Transaction id",
+        "zh": "区块高度、哈希、地址或交易 id"
+    },
+    "Welcome to NeoTube": {
+        "en": "Welcome to NeoTube",
+        "zh": "欢迎来到 NeoTube"
+    },
+    "Fast, correct handy NEO blockchain information platform": {
+        "en": "Fast, correct, handy NEO blockchain information platform",
+        "zh": "快速、正确、便利的 NEO 区块链信息查询平台"
+    },
+    "Total Blocks": {
+        "en": "Total Blocks",
+        "zh": "区块总高度"
+    },
+    "Total Addresses": {
+        "en": "Total Addresses",
+        "zh": "地址总量"
+    },
+    "Total Assets": {
+        "en": "Total Assets",
+        "zh": "资产总量"
+    },
+    "Total Transactions": {
+        "en": "Total Transactions",
+        "zh": "交易总量"
+    },
+    "Address information": {
+        "en": "Address information",
+        "zh": "地址信息"
+    },
+    "The balance of this address is 0": {
+        "en": "The balance of this address is 0",
+        "zh": "该地址的资产为 0"
+    },
+    "TXID": {
+        "en": "TXID",
+        "zh": "交易 ID"
+    },
+    "Type": {
+        "en": "Type",
+        "zh": "类型"
+    },
+    "Size": {
+        "en": "Size",
+        "zh": "大小"
+    },
+    "Version": {
+        "en": "Version",
+        "zh": "版本"
+    },
+    "Time": {
+        "en": "Time",
+        "zh": "时间"
+    },
+    "Sent to": {
+        "en": "Sent to",
+        "zh": "发给"
+    },
+    "Sent from": {
+        "en": "Sent from",
+        "zh": "来自"
+    },
+    "Address": {
+        "en": "Address",
+        "zh": "地址"
+    },
+    "First transaction": {
+        "en": "First transaction",
+        "zh": "首次交易时间"
+    },
+    "Last transaction": {
+        "en": "Last transaction",
+        "zh": "最新交易时间"
+    },
+    "Asset information": {
+        "en": "Asset information",
+        "zh": "资产信息"
+    },
+    "Name": {
+        "en": "Name",
+        "zh": "名称"
+    },
+    "Total supply": {
+        "en": "Total supply",
+        "zh": "总发行量"
+    },
+    "Precision": {
+        "en": "Precision",
+        "zh": "精度"
+    },
+    "Symbol": {
+        "en": "Symbol",
+        "zh": "货币名称"
+    },
+    "Created": {
+        "en": "Created",
+        "zh": "时间"
+    },
+    "Owner": {
+        "en": "Owner",
+        "zh": "发行商地址"
+    },
+    "AssetId": {
+        "en": "AssetId",
+        "zh": "资产 ID"
+    },
+    "TransactionId": {
+        "en": "TransactionId",
+        "zh": "交易 ID"
+    },
+    "Author": {
+        "en": "Author",
+        "zh": "作者"
+    },
+    "Email": {
+        "en": "Email",
+        "zh": "邮箱"
+    },
+    "Description": {
+        "en": "Description",
+        "zh": "描述"
+    },
+    "Balance rank": {
+        "en": "Balance rank",
+        "zh": "资产排名"
+    },
+    "Rank": {
+        "en": "Rank",
+        "zh": "排名"
+    },
+    "Balance": {
+        "en": "Balance",
+        "zh": "资产"
+    },
+    "Asset": {
+        "en": "Asset",
+        "zh": "资产"
+    },
+    "Supply": {
+        "en": "Supply",
+        "zh": "发行量"
+    },
+    "Registered": {
+        "en": "Registered",
+        "zh": "注册地址"
+    },
+    "Block information": {
+        "en": "Block information",
+        "zh": "区块信息"
+    },
+    "Back": {
+        "en": "Back",
+        "zh": "返回"
+    },
+    "Previous block": {
+        "en": "Previous block",
+        "zh": "上一区块"
+    },
+    "Next block": {
+        "en": "Next block",
+        "zh": "下一区块"
+    },
+    "Block index": {
+        "en": "Block index",
+        "zh": "区块索引"
+    },
+    "Merkle root": {
+        "en": "Merkle root",
+        "zh": "梅克尔根"
+    },
+    "Sorry, Your search does not exist.": {
+        "en": "Sorry, Your search page does not exist.",
+        "zh": "对不起，你请求的页面不存在"
+    },
+    "Try going back to where you were or heading to the": {
+        "en": "Try going back to where you were or heading to the",
+        "zh": "尝试返回到您所在的位置或前往"
+    },
+    "Try going back to where you were or heading to the home page.": {
+        "en": "Try going back to where you were or heading to the home page.",
+        "zh": "尝试返回到您所在的位置或前往主页。"
+    },
+    "Sorry, Your search height, hash, address or transaction id does not exist.": {
+        "en": "Sorry, Your search height, hash, address or transaction id does not exist.",
+        "zh": "对不起, 您查找的区块高度、哈希、地址或交易 ID 不存在。"
+    },
+    "home page": {
+        "en": "home page",
+        "zh": "主页"
+    },
+    "Back home": {
+        "en": "Back home",
+        "zh": "返回主页"
+    },
+    "Transaction hash": {
+        "en": "Transaction hash",
+        "zh": "交易哈希"
+    },
+    "NetworkFee": {
+        "en": "NetworkFee",
+        "zh": "网络费用"
+    },
+    "SystemFee": {
+        "en": "SystemFee",
+        "zh": "系统费用"
+    },
+    "Invocation script": {
+        "en": "Invocation script",
+        "zh": "调用脚本"
+    },
+    "Verification script": {
+        "en": "Verification script",
+        "zh": "验证脚本"
+    },
+    "No": {
+        "en": "Page",
+        "zh": "第"
+    },
+    "of": {
+        "en": "of",
+        "zh": "共"
+    },
+    "page": {
+        "en": "",
+        "zh": "页"
+    },
+    "page,": {
+        "en": "",
+        "zh": "页,"
+    },
+    "Previous": {
+        "en": "Previous",
+        "zh": "上一页"
+    },
+    "Next": {
+        "en": "Next",
+        "zh": "下一页"
+    },
+    "Asset register information": {
+        "en": "Asset register information",
+        "zh": "资产注册信息"
+    }
+}
