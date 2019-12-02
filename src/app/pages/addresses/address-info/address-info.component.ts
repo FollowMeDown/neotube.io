@@ -132,6 +132,10 @@ export class AddressInfoComponent implements OnInit, OnDestroy {
         } else {
             for (let i = 0, j = 0; i < this.chartOption; i++) {
                 const leftTime = startTime + i * 24 * 3600;
+                if (j === data.length) {
+                    targetData[i] = { x: this.formatDate(leftTime), y: i === 0 ? 0 : targetData[i - 1].y };
+                    continue;
+                }
                 if (leftTime < data[j].recordTime) {
                     targetData[i] = { x: this.formatDate(leftTime), y: i === 0 ? 0 : targetData[i - 1].y };
                 } else if (leftTime === data[j].recordTime) {
