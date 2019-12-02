@@ -70,6 +70,8 @@ export class AddressInfoComponent implements OnInit, OnDestroy {
     }
 
     initPage() {
+        this.chartData = {};
+        this.chartOption = 30;
         this.initShow();
         this.getAddrAssets();
         this.getListData();
