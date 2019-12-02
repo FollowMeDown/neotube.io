@@ -103,7 +103,7 @@ export class AddressInfoComponent implements OnInit, OnDestroy {
     }
 
     getGasList() {
-        if (this.chartData.hasOwnProperty(this.chartOption)) {
+        if (this.myChart && this.chartData.hasOwnProperty(this.chartOption) && this.chartData[this.chartOption]) {
             this.myChart.data.datasets[0].data = this.chartData[this.chartOption];
             this.myChart.update();
         } else {
@@ -126,12 +126,16 @@ export class AddressInfoComponent implements OnInit, OnDestroy {
         const currentDay = this.formatDate(new Date().getTime() / 1000) + ' 00:00:00';
         const currentTime = new Date(currentDay).getTime() / 1000;
         const startTime = currentTime - (this.chartOption - 1) * 24 * 3600;
-        if (data === null) {
+        if (data === null || data === undefined || data.length === 0) {
             targetData.push({ x: this.formatDate(startTime) });
             targetData.push({ x: this.formatDate(currentTime) });
         } else {
             for (let i = 0, j = 0; i < this.chartOption; i++) {
                 const leftTime = startTime + i * 24 * 3600;
+                if (j === data.length) {
+                    targetData[i] = { x: this.formatDate(leftTime), y: i === 0 ? 0 : targetData[i - 1].y };
+                    continue;
+                }
                 if (leftTime < data[j].recordTime) {
                     targetData[i] = { x: this.formatDate(leftTime), y: i === 0 ? 0 : targetData[i - 1].y };
                 } else if (leftTime === data[j].recordTime) {
