@@ -21,7 +21,9 @@
             <button [ngClass]="{active: chartOption === 30 }" (click)="getGasChartData(30)">30 {{ 'Days' | translate: lang }}</button>
             <button [ngClass]="{active: chartOption === 90 }" (click)="getGasChartData(90)">90 {{ 'Days' | translate: lang }}</button>
         </div>
-        <canvas id="myChart" height="100"></canvas>
+        <div class="chart">
+            <canvas id="myChart"></canvas>
+        </div>
     </div>
     <div *ngIf="displayDataList">
         <h2 class="header-title"><span>{{ 'Transactions' | translate: lang }}</span> ({{ transTotal | number }})</h2>
