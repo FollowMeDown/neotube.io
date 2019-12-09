@@ -18,9 +18,11 @@
                     {{'Assets' | translate: lang}}</li>
             </ul>
             <ul class="header-right">
-                <li class="search"><img src="/assets/images/search.png" (click)="search()" alt="search"><input
-                        type="text" [placeholder]="'Block Height, Hash, Address or Transaction id' | translate: lang"
-                        [(ngModel)]="searchVal" (keyup.enter)="search()"></li>
+                <li class="search"><input type="text" class="over-ellipsis"
+                        [placeholder]="'Block Height, Hash, Address or Transaction id' | translate: lang"
+                        [(ngModel)]="searchVal" (keyup.enter)="search()"><button (click)="search()"><img
+                            src="/assets/images/search.png" alt="search"></button>
+                </li>
                 <li class="lang"><span [ngClass]="{active: lang === 'en'}" (click)="changeLang('en')">EN</span><span
                         [ngClass]="{active: lang === 'zh'}" (click)="changeLang('zh')">中文</span>
                 </li>
@@ -47,7 +49,6 @@
             </ul>
         </nav>
         <nav class="mobile-nav">
-            <img src="/assets/images/back.svg" alt="" (click)="back()" class="back" [ngClass]="{hide: showBack === false}">
             <img class="logo" src="/assets/images/logo.png" alt="logo" routerLink="/home">
             <div class="menu">
                 <img src="/assets/images/menu.svg" alt="" (click)="showDropdown = !showDropdown">

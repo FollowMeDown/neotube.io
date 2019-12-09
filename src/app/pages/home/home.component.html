@@ -1,8 +1,10 @@
 <section class="welcome">
     <h2>{{ 'Welcome to NeoTube' | translate: lang }}</h2>
     <p>{{ 'Fast, correct handy NEO blockchain information platform' | translate: lang }}</p>
-    <div class="search"><img src="/assets/images/search.png" alt="search" (click)="search()"><input type="text"
-            [placeholder]="'Block Height, Hash, Address or Transaction id' | translate: lang" [(ngModel)]="searchVal" (keyup.enter)="search()">
+    <div class="search"><input type="text" class="over-ellipsis"
+            [placeholder]="'Block Height, Hash, Address or Transaction id' | translate: lang" [(ngModel)]="searchVal"
+            (keyup.enter)="search()"><button (click)="search()"><img src="/assets/images/search.png"
+                alt="search"></button>
     </div>
 </section>
 <section class="all-count">
