@@ -13,7 +13,6 @@ export class AppComponent implements OnInit {
     currentPage = '';
     copyRightYear = new Date().getFullYear();
     showDropdown = false;
-    showBack = false;
 
     searchVal = '';
 
@@ -38,11 +37,6 @@ export class AppComponent implements OnInit {
             if (res instanceof NavigationEnd) {
                 const searchIndex = this.router.url.lastIndexOf('#');
                 this.currentPage = this.router.url.slice(0, searchIndex === -1 ? undefined : searchIndex);
-                if (window.history.length <= 1) {
-                    this.showBack = false;
-                } else {
-                    this.showBack = true;
-                }
             }
         });
     }
@@ -133,11 +127,5 @@ export class AppComponent implements OnInit {
             newHash = `lang=${this.lang}`;
         }
         location.hash = newHash;
-    }
-
-    back() {
-        if (window.history.back() === undefined) {
-            this.showBack = false;
-        }
     }
 }

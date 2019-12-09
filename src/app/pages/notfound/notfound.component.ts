@@ -8,7 +8,11 @@ import { Subscription } from 'rxjs';
         <section class="page-content">
             <div class="search-content">
                 <div class="line-first">{{ 'Sorry, Your search does not exist.' | translate: lang }}</div>
-                <div class="line-second">{{ 'Try going back to where you were or heading to the' | translate: lang }} <a routerLink="/home">{{ 'home page' | translate: lang }}</a>.</div>
+                <div class="line-second">
+                    {{ 'Try going back to where you were or heading to the' | translate: lang }}
+                    <a routerLink="/home">{{ 'home page' | translate: lang }}</a
+                    >.
+                </div>
             </div>
         </section>
     `,
@@ -33,5 +37,4 @@ export class NotfoundComponent implements OnInit, OnDestroy {
             this.langSub.unsubscribe();
         }
     }
-
 }

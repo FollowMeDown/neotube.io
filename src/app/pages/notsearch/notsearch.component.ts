@@ -8,14 +8,24 @@ import { ApiService, CommonService } from '@core';
     template: `
         <section class="page-content">
             <div class="search-content">
-                <div class="line-first">{{ 'Sorry, Your search height, hash, address or transaction id does not exist.' | translate: lang }}</div>
+                <div class="line-first">
+                    {{ 'Sorry, Your search height, hash, address or transaction id does not exist.' | translate: lang }}
+                </div>
                 <div class="line-second">{{ 'Try going back to where you were or heading to the home page.' | translate: lang }}</div>
-                <div class="search"><img src="/assets/images/search.png" alt="search" (click)="search()"><input type="text"
-                        [placeholder]="'Block Height, Hash, Address or Transaction id' | translate: lang" [(ngModel)]="searchVal" (keyup.enter)="search()">
+                <div class="search">
+                    <input
+                        type="text"
+                        class="over-ellipsis"
+                        [placeholder]="'Block Height, Hash, Address or Transaction id' | translate: lang"
+                        [(ngModel)]="searchVal"
+                        (keyup.enter)="search()"
+                    /><button (click)="search()"><img src="/assets/images/search.png" alt="search" /></button>
                 </div>
             </div>
             <div class="view-all">
-                <button routerLink="/home"><span>{{ 'Back home' | translate: lang }}</span></button>
+                <button routerLink="/home">
+                    <span>{{ 'Back home' | translate: lang }}</span>
+                </button>
             </div>
         </section>
     `,
