@@ -34,7 +34,7 @@
                 class="des-content">{{ assetRegisterInfo?.description }}</span></li>
     </ul>
     <div *ngIf="displayDataList">
-        <h2 class="header-title"><span>{{ 'Balance rank' | translate: lang }}</span>({{ 100 > page.total ? page.total : 100 }})</h2>
+        <h2 class="header-title"><span>{{ 'Balance rank' | translate: lang }}</span>({{ 10000 > page.total ? page.total : 10000 }})</h2>
         <div class="page-table">
             <app-loading *ngIf="loading"></app-loading>
             <table>

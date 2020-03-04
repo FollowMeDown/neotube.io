@@ -33,7 +33,7 @@ export class AssetInfoComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
-        this.page.size = 5;
+        this.page.size = 10;
         this.langSub = this.commonService.langSub$.subscribe(res => {
             this.lang = res;
         });
@@ -99,7 +99,8 @@ export class AssetInfoComponent implements OnInit, OnDestroy {
             if (res.code === 200) {
                 this.displayDataList = res.result.data;
                 this.page.total = res.result.total;
-                this.page.length = res.result.total > 100 ? Math.ceil(100 / this.page.size) : Math.ceil(res.result.total / this.page.size);
+                this.page.length =
+                    res.result.total > 10000 ? Math.ceil(10000 / this.page.size) : Math.ceil(res.result.total / this.page.size);
                 if (this.page.index > this.page.length) {
                     this.page.index = 1;
                 }
