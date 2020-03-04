@@ -28,8 +28,12 @@ export class CommonService {
             arr.forEach(item => {
                 newarr = item.split('=');
                 if (typeof obj[newarr[0]] === 'undefined') {
-                    if (newarr[0] === 'lang' && (newarr[1] === 'en' || newarr[1] === 'zh')) {
-                        obj[newarr[0]] = newarr[1];
+                    if (newarr[0] === 'lang') {
+                        if (newarr[1] === 'zh') {
+                            obj[newarr[0]] = 'zh';
+                        } else {
+                            obj[newarr[0]] = 'en';
+                        }
                     }
                 }
             });
