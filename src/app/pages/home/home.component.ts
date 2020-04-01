@@ -46,7 +46,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     }
 
     getAllCounts() {
-        this.total = {};
+        // this.total = {};
         this.apiService.GetAllCounts().subscribe((res: any) => {
             if (res.code === 200 && res.result) {
                 this.total = res.result;
