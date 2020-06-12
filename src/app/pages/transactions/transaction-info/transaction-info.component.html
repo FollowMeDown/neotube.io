@@ -2,60 +2,96 @@
     <div class="header-title-group" [appTransBorderColor]="txInfo?.type">
         <p class="header-title-info">{{ txInfo?.type | transType}} <span>transaction</span></p>
         <p class="header-title-address"><span>{{ 'Transaction hash' | translate: lang }}</span>: {{ txInfo?.txid }}</p>
-        <p class="header-title-time"><span>{{ 'Time' | translate: lang }}</span>: {{ txInfo?.blockTime | unixTime: lang }}</p>
+        <p class="header-title-time">
+            <span>{{ 'Time' | translate: lang }}</span>: {{ txInfo?.blockTime | unixTime: lang }}
+        </p>
     </div>
-    <div class="tran-info" *ngIf="(transfer || transferNep5)">
-        <div class="tran-info-from">
-            <p class="info-title"
-                *ngIf="(transfer && transfer?.TxUTXO !== null) || (transferNep5 && transferNep5[0]?.from !== '')">{{ 'Sent
-                from' | translate: lang }}</p>
-            <div *ngIf="transfer && transfer?.TxUTXO !== null">
-                <div *ngFor="let txUTXO of transfer?.TxUTXO">
-                    <div class="info-address"><a class="link-btn"
-                            routerLink="/address/{{txUTXO?.address}}/page/1">{{ txUTXO?.address }}</a></div>
-                    <div class="info-amount">
-                        <span>{{ txUTXO?.value | unlimitedNumber: lang }}</span>&nbsp;
-                        <span class="link-btn" routerLink="/asset/{{txUTXO?.assetId}}/page/1">{{ txUTXO?.name }}</span>
+    <div class="tran-info-detail" *ngIf="(transfer || transferNep5 || transferNft)">
+        <div class="tran-info">
+            <div class="tran-info-from">
+                <p class="info-title"
+                    *ngIf="(transfer && transfer?.TxUTXO !== null) || (transferNep5 && transferNep5[0]?.from !== '') || (transferNft && transferNft[0]?.from !== '')">
+                    {{ 'Sent from' | translate: lang }}</p>
+                <div *ngIf="transfer && transfer?.TxUTXO !== null">
+                    <div *ngFor="let txUTXO of transfer?.TxUTXO">
+                        <div class="info-address"><a class="link-btn"
+                                routerLink="/address/{{txUTXO?.address}}/page/1">{{ txUTXO?.address }}</a></div>
+                        <div class="info-amount">
+                            <span>{{ txUTXO?.value | unlimitedNumber: lang }}</span>&nbsp;
+                            <span class="link-btn"
+                                routerLink="/asset/{{txUTXO?.assetId}}/page/1">{{ txUTXO?.name }}</span>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="transferNep5 && transferNep5[0]?.from !== ''">
+                    <div *ngFor="let txfrom of transferNep5">
+                        <div class="info-address"><a class="link-btn"
+                                routerLink="/address/{{txfrom?.from}}/page/1">{{ txfrom?.from }}</a></div>
+                        <div class="info-amount">
+                            <span>{{ txfrom?.value | unlimitedNumber: lang }}</span>&nbsp;
+                            <span class="link-btn"
+                                routerLink="/nep5/{{txfrom?.assetId}}/page/1">{{ txfrom?.name }}</span>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="transferNft && transferNft[0]?.from !== ''">
+                    <div *ngFor="let txfrom of transferNft">
+                        <div class="info-address"><a class="link-btn"
+                                routerLink="/address/{{txfrom?.from}}/page/1">{{ txfrom?.from }}</a></div>
+                        <div class="nft-name link-btn" routerLink="/tokens-nft/{{txfrom?.assetId}}/page/1">
+                            {{ txfrom?.symbol }}
+                        </div>
                     </div>
                 </div>
             </div>
-            <div *ngIf="transferNep5 && transferNep5[0]?.from !== ''">
-                <div *ngFor="let txfrom of transferNep5">
-                    <div class="info-address"><a class="link-btn"
-                            routerLink="/address/{{txfrom?.from}}/page/1">{{ txfrom?.from }}</a></div>
-                    <div class="info-amount">
-                        <span>{{ txfrom?.value | unlimitedNumber: lang }}</span>&nbsp;
-                        <span class="link-btn" routerLink="/nep5/{{txfrom?.assetId}}/page/1">{{ txfrom?.name }}</span>
+            <div class="tran-info-icon">
+                <img class="avatar" *ngIf="transferNft" [src]="transferNft[0]?.nftInfo?.image"
+                    onerror="this.src='/assets/images/nft/default-logo.png'" alt="">
+                <img class="arrow" src="/assets/images/img-arrow.png" alt="">
+            </div>
+            <div class="tran-info-to">
+                <p class="info-title"
+                    *ngIf="(transfer && transfer?.TxVouts !== null) || (transferNep5 && transferNep5[0]?.to !== '') || (transferNft && transferNft[0]?.to !== '')">
+                    {{ 'Sent to' | translate: lang }}
+                </p>
+                <div *ngIf="transfer && transfer?.TxVouts !== null">
+                    <div *ngFor="let txVout of transfer?.TxVouts">
+                        <div class="info-address"><a class="link-btn"
+                                routerLink="/address/{{txVout?.address}}/page/1">{{ txVout?.address }}</a></div>
+                        <div class="info-amount">
+                            <span>{{ txVout?.value | unlimitedNumber: lang }}</span>&nbsp;
+                            <span class="link-btn"
+                                routerLink="/asset/{{txVout?.assetId}}/page/1">{{ txVout?.name }}</span>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="transferNep5 && transferNep5[0]?.to !== ''">
+                    <div *ngFor="let txto of transferNep5">
+                        <div class="info-address"><a class="link-btn"
+                                routerLink="/address/{{txto?.to}}/page/1">{{ txto?.to }}</a></div>
+                        <div class="info-amount">
+                            <span>{{ txto?.value | unlimitedNumber: lang }}</span>&nbsp;
+                            <span class="link-btn" routerLink="/nep5/{{txto?.assetId}}/page/1">{{ txto?.name }}</span>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="transferNft && transferNft[0]?.to !== ''">
+                    <div *ngFor="let txto of transferNft">
+                        <div class="info-address"><a class="link-btn"
+                                routerLink="/address/{{txto?.to}}/page/1">{{ txto?.to }}</a></div>
+                        <div class="nft-name link-btn" routerLink="/tokens-nft/{{txto?.assetId}}/page/1">{{ txto?.symbol }}</div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="tran-info-icon"><img src="/assets/images/img-arrow.png" alt=""></div>
-        <div class="tran-info-to">
-            <p class="info-title"
-                *ngIf="(transfer && transfer?.TxVouts !== null) || (transferNep5 && transferNep5[0]?.to !== '')">
-                {{ 'Sent to' | translate: lang }}
-            </p>
-            <div *ngIf="transfer && transfer?.TxVouts !== null">
-                <div *ngFor="let txVout of transfer?.TxVouts">
-                    <div class="info-address"><a class="link-btn"
-                            routerLink="/address/{{txVout?.address}}/page/1">{{ txVout?.address }}</a></div>
-                    <div class="info-amount">
-                        <span>{{ txVout?.value | unlimitedNumber: lang }}</span>&nbsp;
-                        <span class="link-btn" routerLink="/asset/{{txVout?.assetId}}/page/1">{{ txVout?.name }}</span>
-                    </div>
-                </div>
+        <div class="nft-info" *ngIf="transferNft">
+            <div class="title">
+                <img [src]="transferNft[0]?.nftInfo?.image" onerror="this.src='/assets/images/nft/default-logo.png'"
+                    alt="">
+                <a routerLink="/tokens-nft/{{transferNft[0]?.assetId}}/page/1">{{ transferNft[0]?.nftInfo ? transferNft[0]?.nftInfo?.name : transferNft[0]?.symbol }}
+                    #{{ transferNft[0]?.tokenId }}</a>
             </div>
-            <div *ngIf="transferNep5 && transferNep5[0]?.to !== ''">
-                <div *ngFor="let txto of transferNep5">
-                    <div class="info-address"><a class="link-btn"
-                            routerLink="/address/{{txto?.to}}/page/1">{{ txto?.to }}</a></div>
-                    <div class="info-amount">
-                        <span>{{ txto?.value | unlimitedNumber: lang }}</span>&nbsp;
-                        <span class="link-btn" routerLink="/nep5/{{txto?.assetId}}/page/1">{{ txto?.name }}</span>
-                    </div>
-                </div>
-            </div>
+            <div class="desc" *ngIf="transferNft[0]?.nftInfo">{{ transferNft[0]?.nftInfo?.description }}</div>
         </div>
     </div>
     <ul class="info">

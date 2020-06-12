@@ -5,6 +5,7 @@
 export const environment = {
     production: false,
     apiDomain: 'https://mainnet.api.neotube.io',
+    // apiDomain: 'http://192.168.1.39:8001',
     apiDotest: 'https://testnet.api.neotube.io'
 };
 

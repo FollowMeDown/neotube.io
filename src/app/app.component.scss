@@ -35,7 +35,7 @@ header {
         width: 565px;
         height: 40px;
         position: relative;
-        @media screen and (max-width: 1650px) {
+        @media screen and (max-width: 1800px) {
             width: 300px;
         }
         button {
@@ -124,13 +124,13 @@ header {
             li {
                 &.lang {
                     width: 100px;
-                    @media screen and (max-width: 1350px) {
+                    @media screen and (max-width: 1480px) {
                         display: none;
                     }
                 }
                 &.net {
                     width: 150px;
-                    @media screen and (max-width: 1350px) {
+                    @media screen and (max-width: 1480px) {
                         display: none;
                     }
                 }
@@ -260,7 +260,7 @@ footer {
         margin-bottom: 10px;
         width: 100%;
         display: none;
-        @media screen and (max-width: 1350px) {
+        @media screen and (max-width: 1480px) {
             display: flex;
         }
         .left,
@@ -321,7 +321,7 @@ footer {
     }
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1170px) {
     header {
         nav.pc-nav,
         nav.mobile-nav {
@@ -333,7 +333,7 @@ footer {
     }
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 800px) {
     header {
         nav.pc-nav,
         nav.ipad-nav {

@@ -63,6 +63,10 @@ export class ApiService {
         return this.http.post(`${this.apiDo}/api/asset`, { method: 'getnep5registerinfo', params: [id] });
     }
 
+    public GetAssetByAddress(address: string): Observable<any> {
+        return this.http.post(`${this.apiDo}/api/address`, { method: 'getallassets', params: [address] });
+    }
+
     // block
     public GetBlocks(pageIndex, pageSize): Observable<any> {
         return this.http.post(`${this.apiDo}/api/block`, { method: 'getblocks', params: [pageIndex, pageSize] });
@@ -99,5 +103,25 @@ export class ApiService {
 
     public GetScripts(txid): Observable<any> {
         return this.http.post(`${this.apiDo}/api/transactions`, { method: 'getscripts', params: [txid] });
+    }
+
+    // NFT
+    public GetNfts(): Observable<any> {
+        return this.http.get(`${this.apiDo}/api/nft`);
+    }
+
+    public GetNftTxByAssetId(pageIndex, pageSize, assetId: string): Observable<any> {
+        return this.http.post(`${this.apiDo}/api/nft/transactions`, {
+            method: 'gettxbyassetid',
+            params: [pageIndex, pageSize, assetId]
+        });
+    }
+
+    public GetNftTxByTxId(txId: string): Observable<any> {
+        return this.http.post(`${this.apiDo}/api/nft/transactions`, { method: 'getnfttxbytxid', params: [txId] });
+    }
+
+    public GetNftRankByAssetID(pageIndex, pageSize, assetId): Observable<any> {
+        return this.http.post(`${this.apiDo}/api/nft/address`, { method: 'getrankbyassetid', params: [pageIndex, pageSize, assetId] });
     }
 }

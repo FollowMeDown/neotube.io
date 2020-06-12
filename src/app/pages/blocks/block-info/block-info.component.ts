@@ -18,6 +18,7 @@ export class BlockInfoComponent implements OnInit, OnDestroy {
 
     transfer: any = [];
     transferNep5: any = [];
+    transferNft: any = [];
     blockInfo: any = [];
     transTotal = 0;
     totalBlocks = 0;
@@ -78,6 +79,7 @@ export class BlockInfoComponent implements OnInit, OnDestroy {
             this.show[i] = false;
             this.transfer[i] = 0;
             this.transferNep5[i] = 0;
+            this.transferNft[i] = 0;
         }
     }
 
@@ -135,13 +137,26 @@ export class BlockInfoComponent implements OnInit, OnDestroy {
         });
     }
 
-    showInfo(index, txid) {
+    getNftTx(index: number, txid: string) {
+        this.apiService.GetNftTxByTxId(txid).subscribe((res: any) => {
+            if (res.code === 200 && res.result && res.result.nft_txs) {
+                this.transferNft[index] = res.result.nft_txs;
+            }
+        });
+    }
+
+    showInfo(index: number, txid: string, isNft = false) {
         this.show[index] = !this.show[index];
-        if (this.show[index] && this.transfer[index] === 0 && this.transferNep5[index] === 0) {
+        if (this.show[index] && this.transfer[index] === 0 && this.transferNep5[index] === 0 && this.transferNft[index] === 0) {
             this.transfer[index] = '';
             this.transferNep5[index] = '';
-            this.getTransferByTxid(index, txid);
-            this.getNep5TransferByTxid(index, txid);
+            this.transferNft[index] = '';
+            if (isNft) {
+                this.getNftTx(index, txid);
+            } else {
+                this.getTransferByTxid(index, txid);
+                this.getNep5TransferByTxid(index, txid);
+            }
         }
     }
 

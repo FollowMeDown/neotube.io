@@ -282,5 +282,53 @@
     "Asset register information": {
         "en": "Asset register information",
         "zh": "资产注册信息"
+    },
+    "Non-Fungible Token Explorer": {
+        "en": "Non-Fungible Token Explorer",
+        "zh": "Non-Fungible Token Explorer"
+    },
+    "Projects": {
+        "en": "Projects",
+        "zh": "项目"
+    },
+    "Explore NFTs": {
+        "en": "Explore NFTs",
+        "zh": "Explore NFTs"
+    },
+    "Holders": {
+        "en": "Holders",
+        "zh": "持有者"
+    },
+    "Transfers": {
+        "en": "Transfers",
+        "zh": "交易量"
+    },
+    "Overview": {
+        "en": "Overview",
+        "zh": "概述"
+    },
+    "Social profiles": {
+        "en": "Social profiles",
+        "zh": "社交账号"
+    },
+    "Official site": {
+        "en": "Official site",
+        "zh": "官网"
+    },
+    "Launch Date": {
+        "en": "Launch Date",
+        "zh": "发行日期"
+    },
+    "Contract": {
+        "en": "Contract",
+        "zh": "合约"
+    },
+    "NFT Assets": {
+        "en": "NFT Assets",
+        "zh": "NFT 资产"
+    },
+    "No data": {
+        "en": "No data",
+        "zh": "暂无数据"
     }
 }

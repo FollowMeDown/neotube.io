@@ -21,39 +21,83 @@
             }
             span {
                 font-size: 16px;
-                color: #ACACAC;
+                color: #acacac;
             }
         }
     }
 }
-.tran-info {
-    padding: 0 10px;
+.tran-info-detail {
+    padding: 30px 10px;
     border-radius: 4px;
     background: #fff;
     box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.1);
-    .tran-info-from {
+    .tran-info {
         text-align: center;
-        margin-top: 30px;
+        .tran-info-from,
+        .tran-info-to {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .tran-info-icon {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            img.avatar {
+                width: 50px;
+                margin-bottom: 20px;
+            }
+        }
+        .info-title {
+            font-size: 14px;
+        }
+        .info-address {
+            font-size: 14px;
+            margin-top: 20px;
+        }
+        .info-amount {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+        .nft-name {
+            margin-top: 20px;
+            display: inline-block;
+            height: 32px;
+            line-height: 32px;
+            padding: 0 20px;
+            background: #eef9f6;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: bold;
+            color: rgba(0, 175, 146, 1);
+        }
     }
-    .tran-info-icon {
-        text-align: center;
-        position: relative;
-    }
-    .tran-info-to {
-        text-align: center;
-        margin-top: 30px;
-    }
-    .info-title {
-        font-size: 14px;
-        margin-bottom: 20px;
-    }
-    .info-address {
-        font-size: 14px;
-        margin-bottom: 20px;
-    }
-    .info-amount {
-        font-size: 18px;
-        margin-bottom: 30px;
+    .nft-info {
+        margin: 30px 10px 0;
+        border-top: 1px solid #f2f2f2;
+        .title {
+            padding: 20px 40px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #7f8993;
+            img {
+                width: 28px;
+                margin-right: 12px;
+                vertical-align: middle;
+            }
+            a {
+                color: #00af92;
+                text-decoration: none;
+            }
+        }
+        .desc {
+            padding: 0 40px;
+            font-size: 14px;
+            font-weight: 400;
+            color: rgba(91, 96, 100, 1);
+            line-height: 28px;
+        }
     }
 }
 .script {
@@ -86,7 +130,7 @@
             }
         }
     }
-    .tran-info {
+    .tran-info-detail .tran-info {
         display: flex;
         flex-direction: row;
         .tran-info-from {
@@ -97,12 +141,6 @@
         }
         .tran-info-to {
             width: 45%;
-        }
-        img {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
         }
     }
 }
@@ -124,7 +162,7 @@
             }
         }
     }
-    .tran-info {
+    .tran-info-detail .tran-info {
         display: flex;
         flex-direction: column;
         .tran-info-from {
@@ -136,17 +174,19 @@
             word-wrap: break-word;
         }
         .tran-info-icon {
-            height: 40px;
-            line-height: 40px;
             margin: 20px 0;
-            img {
+            flex-direction: row;
+            img.avatar {
+                margin-bottom: 0;
+            }
+            img.arrow {
                 transform: rotate(90deg);
             }
         }
     }
 }
 @media screen and (min-width: 420px) {
-    .tran-info {
+    .tran-info-detail {
         margin: 36px 0;
     }
     .info,
@@ -158,8 +198,12 @@
     }
 }
 @media screen and (max-width: 419px) {
-    .tran-info {
+    .tran-info-detail {
         margin: 30px 0;
+        .nft-info .title, .nft-info .desc {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
     }
     .info li {
         width: 100%;

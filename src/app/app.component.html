@@ -1,5 +1,5 @@
 <article>
-    <header [ngClass]="{isHome: currentPage==='/' || currentPage==='/home'}">
+    <header [ngClass]="{isHome: currentPage==='/' || currentPage==='/home' || currentPage==='/tokens-nft'}">
         <nav class="pc-nav">
             <ul class="header-left">
                 <li>
@@ -16,6 +16,7 @@
                 <li routerLink="/assets/page/1"
                     [ngClass]="{active: currentPage.indexOf('/asset')>=0 || currentPage.indexOf('/nep5/')>=0}">
                     {{'Assets' | translate: lang}}</li>
+                <li routerLink="/tokens-nft" [ngClass]="{active: currentPage.indexOf('/tokens-nft')>=0}">Explore NFT</li>
             </ul>
             <ul class="header-right">
                 <li class="search"><input type="text" class="over-ellipsis"
@@ -46,6 +47,7 @@
                 <li routerLink="/assets/page/1"
                     [ngClass]="{active: currentPage.indexOf('/asset')>=0 || currentPage.indexOf('/nep5/')>=0}">
                     {{'Assets' | translate: lang}}</li>
+                <li routerLink="/tokens-nft" [ngClass]="{active: currentPage.indexOf('/tokens-nft')>=0}">Explore NFT</li>
             </ul>
         </nav>
         <nav class="mobile-nav">
@@ -69,12 +71,14 @@
                     <li (click)="showDropdown = false" routerLink="/assets/page/1"
                         [ngClass]="{active: currentPage.indexOf('/asset')>=0 || currentPage.indexOf('/nep5/')>=0}">
                         {{'Assets' | translate: lang}}</li>
+                    <li (click)="showDropdown = false" routerLink="/tokens-nft"
+                        [ngClass]="{active: currentPage.indexOf('/tokens-nft')>=0}">Explore NFT</li>
                 </ul>
             </div>
         </nav>
     </header>
 
-    <section class="content" [ngClass]="{isNotHome: currentPage!=='/' && currentPage!=='/home'}">
+    <section class="content" [ngClass]="{isNotHome: currentPage!=='/' && currentPage!=='/home' && currentPage!=='/tokens-nft'}">
         <router-outlet></router-outlet>
     </section>
 
