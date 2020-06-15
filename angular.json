@@ -3,7 +3,7 @@
     "version": 1,
     "newProjectRoot": "projects",
     "projects": {
-        "neotube-site": {
+        "neotube.io": {
             "projectType": "application",
             "schematics": {
                 "@schematics/angular:component": {
@@ -91,18 +91,18 @@
                 "serve": {
                     "builder": "@angular-devkit/build-angular:dev-server",
                     "options": {
-                        "browserTarget": "neotube-site:build"
+                        "browserTarget": "neotube.io:build"
                     },
                     "configurations": {
                         "production": {
-                            "browserTarget": "neotube-site:build:production"
+                            "browserTarget": "neotube.io:build:production"
                         }
                     }
                 },
                 "extract-i18n": {
                     "builder": "@angular-devkit/build-angular:extract-i18n",
                     "options": {
-                        "browserTarget": "neotube-site:build"
+                        "browserTarget": "neotube.io:build"
                     }
                 },
                 "lint": {
@@ -115,5 +115,5 @@
             }
         }
     },
-    "defaultProject": "neotube-site"
+    "defaultProject": "neotube.io"
 }
