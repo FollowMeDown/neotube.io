@@ -14,10 +14,11 @@ import { UnlimitedNumberPipe } from './pipes/unlimited-number.pipe';
 import { AssetColorDirective } from './directive/asset-color.directive';
 import { TransBorderColorDirective } from './directive/trans-border-color.directive';
 import { TransColorDirective } from './directive/trans-color.directive';
+import { ErrSrcDirective } from './directive/err-src.directive';
 
 const COMPONENTS = [PaginatorComponent, LoadingComponent, NoDataComponent];
 const PIPES = [TranslatePipe, TransTypePipe, UnixTimePipe, UnlimitedNumberPipe];
-const DIRECTIVES = [AssetColorDirective, TransColorDirective, TransBorderColorDirective];
+const DIRECTIVES = [AssetColorDirective, TransColorDirective, TransBorderColorDirective, ErrSrcDirective];
 
 @NgModule({
     declarations: [...PIPES, ...COMPONENTS, ...DIRECTIVES],

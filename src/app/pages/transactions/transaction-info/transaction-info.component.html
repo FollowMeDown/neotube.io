@@ -46,7 +46,7 @@
             </div>
             <div class="tran-info-icon">
                 <img class="avatar" *ngIf="transferNft" [src]="transferNft[0]?.nftInfo?.image"
-                    onerror="this.src='/assets/images/nft/default-logo.png'" alt="">
+                    err-src="/assets/images/nft/default-logo.png" alt="">
                 <img class="arrow" src="/assets/images/img-arrow.png" alt="">
             </div>
             <div class="tran-info-to">
@@ -86,7 +86,7 @@
         </div>
         <div class="nft-info" *ngIf="transferNft">
             <div class="title">
-                <img [src]="transferNft[0]?.nftInfo?.image" onerror="this.src='/assets/images/nft/default-logo.png'"
+                <img [src]="transferNft[0]?.nftInfo?.image" err-src="/assets/images/nft/default-logo.png"
                     alt="">
                 <a routerLink="/tokens-nft/{{transferNft[0]?.assetId}}/page/1">{{ transferNft[0]?.nftInfo ? transferNft[0]?.nftInfo?.name : transferNft[0]?.symbol }}
                     #{{ transferNft[0]?.tokenId }}</a>

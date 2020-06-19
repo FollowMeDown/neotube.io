@@ -101,10 +101,10 @@
                     </div>
                     <div class="tran-info-icon">
                         <img class="avatar" [src]="transferNft[index][0]?.image"
-                            onerror="this.src='/assets/images/nft/default-logo.png'" alt="" *ngIf="transferNft[index]">
+                            err-src="/assets/images/nft/default-logo.png" alt="" *ngIf="transferNft[index]">
                         <img class="arrow" src="/assets/images/img-arrow.png" alt="">
                         <div class="nft-info" *ngIf="transferNft[index]">
-                            <img onerror="this.src='/assets/images/nft/default-logo.png'"
+                            <img err-src="/assets/images/nft/default-logo.png"
                                 [src]="transferNft[index][0]?.nftInfo?.image" alt="">
                             <span>
                                 {{ transferNft[index][0]?.nftInfo ? transferNft[index][0]?.nftInfo?.name : transferNft[index][0]?.symbol }}
