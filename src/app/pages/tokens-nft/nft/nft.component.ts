@@ -68,6 +68,19 @@ export class NftComponent implements OnInit {
 
     getData() {
         const nfts = JSON.parse(sessionStorage.getItem('nfts'));
+        if (nfts) {
+            this.findNft(nfts);
+        } else {
+            this.apiService.GetNfts().subscribe(res => {
+                if (res.code === 200 && res.result) {
+                    sessionStorage.setItem('nfts', JSON.stringify(res.result));
+                    this.findNft(res.result);
+                }
+            });
+        }
+    }
+
+    findNft(nfts: any) {
         this.displayData = nfts.find(item => item.assetId === this.assetId);
         if (this.displayData) {
             if (location.hash === '#holder') {
