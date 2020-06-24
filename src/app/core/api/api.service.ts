@@ -102,12 +102,14 @@ export class ApiService {
     }
 
     public GetTXByTXID(txid): Observable<any> {
-        return this.http.post(`${this.apiDo}/api/transactions`, { method: 'gettxbytxid', params: [txid] }).pipe(map((res: any) => {
-            if (res.code === 200 && res.result && res.result.nft_txs) {
-                res.result.nft_txs = this.holderNft(res.result.nft_txs);
-            }
-            return res;
-        }));
+        return this.http.post(`${this.apiDo}/api/transactions`, { method: 'gettxbytxid', params: [txid] }).pipe(
+            map((res: any) => {
+                if (res.code === 200 && res.result && res.result.nft_txs) {
+                    res.result.nft_txs[0].image = this.holderNftImage(res.result.nft_txs[0]);
+                }
+                return res;
+            })
+        );
     }
 
     public GetScripts(txid): Observable<any> {
@@ -116,12 +118,14 @@ export class ApiService {
 
     // NFT
     public GetNfts(): Observable<any> {
-        return this.http.get(`${this.apiDo}/api/nft`).pipe(map((res: any) => {
-            if (res.code === 200 && res.result) {
-                res.result = this.holderNft(res.result);
-            }
-            return res;
-        }));
+        return this.http.get(`${this.apiDo}/api/nft`).pipe(
+            map((res: any) => {
+                if (res.code === 200 && res.result) {
+                    res.result = this.holderNft(res.result);
+                }
+                return res;
+            })
+        );
     }
 
     public GetNftTxByAssetId(pageIndex, pageSize, assetId: string): Observable<any> {
@@ -132,12 +136,14 @@ export class ApiService {
     }
 
     public GetNftTxByTxId(txId: string): Observable<any> {
-        return this.http.post(`${this.apiDo}/api/nft/transactions`, { method: 'getnfttxbytxid', params: [txId] }).pipe(map((res: any) => {
-            if (res.code === 200 && res.result && res.result.nft_txs) {
-                res.result.nft_txs = this.holderNft(res.result.nft_txs);
-            }
-            return res;
-        }));
+        return this.http.post(`${this.apiDo}/api/nft/transactions`, { method: 'getnfttxbytxid', params: [txId] }).pipe(
+            map((res: any) => {
+                if (res.code === 200 && res.result && res.result.nft_txs) {
+                    res.result.nft_txs[0].image = this.holderNftImage(res.result.nft_txs[0]);
+                }
+                return res;
+            })
+        );
     }
 
     public GetNftRankByAssetID(pageIndex, pageSize, assetId): Observable<any> {
@@ -152,6 +158,16 @@ export class ApiService {
                 item.image = `/assets/images/nft/${this.lineTShirtAssetId2}.png`;
             }
             return item;
-        })
+        });
+    }
+
+    holderNftImage(nft: any) {
+        let image = '';
+        if (nft.assetId === this.lineTShirtAssetId1) {
+            image = `/assets/images/nft/${this.lineTShirtAssetId1}.png`;
+        } else if (nft.assetId === this.lineTShirtAssetId2) {
+            image = `/assets/images/nft/${this.lineTShirtAssetId2}.png`;
+        }
+        return image;
     }
 }
