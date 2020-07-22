@@ -330,5 +330,73 @@
     "No data": {
         "en": "No data",
         "zh": "暂无数据"
+    },
+    "Transactions per day": {
+        "en": "Transactions per day",
+        "zh": "每日交易量"
+    },
+    "Assets List": {
+        "en": "Assets List",
+        "zh": "资产列表"
+    },
+    "GAS rank": {
+        "en": "GAS rank",
+        "zh": "GAS 排名"
+    },
+    "Neo rank": {
+        "en": "Neo rank",
+        "zh": "Neo 排名"
+    },
+    "DEX on Ethereum, EOS and NEO blockchains": {
+        "en": "DEX on Ethereum, EOS and NEO blockchains",
+        "zh": "基于Neo、Ethereum、EOS 的首个跨链去中心化金融平台"
+    },
+    "O3, A leadingcrypto wallet, gateway to the Smart Economy": {
+        "en": "O3, A leadingcrypto wallet, gateway to the Smart Economy",
+        "zh": "O3, 最受欢迎的Neo钱包之一，智能经济入口"
+    },
+    "Integrated financial services platform": {
+        "en": "Integrated financial services platform",
+        "zh": "集成式金融服务平台"
+    },
+    "Keep up-to-date with the latest ecosystem news": {
+        "en": "Keep up-to-date with the latest ecosystem news",
+        "zh": "随时了解最新的Neo生态系统新闻"
+    },
+    "Contact us": {
+        "en": "Contact us",
+        "zh": "联系我们"
+    },
+    "Partners": {
+        "en": "Partners",
+        "zh": "合作伙伴"
+    },
+    "Feedback": {
+        "en": "Feedback",
+        "zh": "反馈"
+    },
+    "Donation": {
+        "en": "Donation",
+        "zh": "捐献"
+    },
+    "Cooperation": {
+        "en": "Cooperation",
+        "zh": "合作"
+    },
+    "Discover the Ecosystem": {
+        "en": "Discover the Ecosystem",
+        "zh": "探索生态系统"
+    },
+    "Awesome apps": {
+        "en": "Awesome apps",
+        "zh": "精选应用"
+    },
+    "broadcast1": {
+        "en": "【Announcement】NeoTube block explorer is fully upgraded",
+        "zh": "【公告】NeoTube 区块浏览器全面升级"
+    },
+    "broadcast2": {
+        "en": "【Look for Volunteer Translator】CREATE ENJOY SHARE jointly with NeoTube",
+        "zh": "【招募平台翻译志愿者】，NeoTube邀你一起创造、体验和分享！"
     }
 }

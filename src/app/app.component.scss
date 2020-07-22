@@ -90,6 +90,52 @@ header {
             padding: 0 10px;
         }
     }
+    nav.pc-nav,
+    nav.ipad-nav {
+        section.cover-bg {
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            z-index: 99999;
+            visibility: hidden;
+            background: transparent;
+            &.showDropdown {
+                visibility: visible;
+            }
+        }
+        ul.cover-content {
+            visibility: hidden;
+            position: absolute;
+            right: 0;
+            left: 0;
+            z-index: 99999;
+            background: #fff;
+            box-shadow: 0px 3px 17px 1px rgba(0, 0, 0, 0.12);
+            border-radius: 2px;
+            padding: 4px 0;
+            line-height: normal;
+            &.showDropdown {
+                visibility: visible;
+            }
+            li {
+                text-align: center;
+                height: 40px;
+                line-height: 40px;
+                font-size: 14px;
+                width: 100%;
+                color: #333;
+                &:not(:last-child) {
+                    border-bottom: 1px solid #eee;
+                }
+                &:hover, &.active {
+                    color: #00af92;
+                    background: #f5f5f5;
+                }
+            }
+        }
+    }
     nav.pc-nav {
         ul li {
             display: inline-block;
@@ -102,19 +148,22 @@ header {
         }
         ul.header-left {
             height: 100%;
-            li {
+            & > li {
+                text-align: center;
                 cursor: pointer;
                 height: 70px;
                 line-height: 70px;
+                position: relative;
+                padding: 0 15px;
+                &.asset-item {
+                    min-width: 100px;
+                }
                 &:hover {
                     color: #00af92;
                 }
                 &.active {
                     border-bottom: 1px solid #00af92;
                 }
-            }
-            li:not(:last-child) {
-                margin-right: 30px;
             }
         }
         ul.header-right {
@@ -163,7 +212,8 @@ header {
     }
     nav.ipad-nav {
         display: none;
-        ul li {
+        & > ul > li {
+            text-align: center;
             display: inline-block;
             font-size: 16px;
             font-weight: 400;
@@ -171,15 +221,17 @@ header {
             cursor: pointer;
             height: 70px;
             line-height: 70px;
+            position: relative;
+            padding: 0 15px;
+            &.asset-item {
+                min-width: 100px;
+            }
             &.active {
                 color: #00af92;
                 border-bottom: 1px solid #00af92;
             }
             &:hover {
                 color: #00af92;
-            }
-            &:not(:first-child) {
-                margin-left: 30px;
             }
         }
     }
@@ -196,7 +248,7 @@ header {
             img {
                 width: 24px;
             }
-            section {
+            section.cover-bg {
                 position: fixed;
                 left: 0;
                 right: 0;
@@ -209,7 +261,7 @@ header {
                     visibility: visible;
                 }
             }
-            ul {
+            ul.cover-content {
                 visibility: hidden;
                 position: absolute;
                 top: 32px;
@@ -226,14 +278,21 @@ header {
                     text-align: center;
                     height: 40px;
                     line-height: 40px;
-                    min-width: 120px;
-                    padding: 0 10px;
+                    width: 120px;
+                    color: #333;
                     &:not(:last-child) {
                         border-bottom: 1px solid #eee;
                     }
-                    &:hover {
+                    &:hover, &.active {
                         color: #00af92;
                         background: #f5f5f5;
+                    }
+                    &.asset-item {
+                        position: relative;
+                        .level2 {
+                            top: 0;
+                            right: 120px;
+                        }
                     }
                 }
             }

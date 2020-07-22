@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonService, ApiService } from '@core';
-import { Subscription } from 'rxjs';
+import { Subscription, fromEvent } from 'rxjs';
 import { Router } from '@angular/router';
 
 @Component({
@@ -21,11 +21,26 @@ export class HomeComponent implements OnInit, OnDestroy {
     isAddressPattern = /^A([0-9a-zA-Z]{33})$/;
     isNumberPattern = /^\d+$/;
 
+    // ecosystemz
+    ecosystemzLen = 4;
+    ecosystemzTotal = 4;
+    ecosystemzFirstIndex = 0;
+    ecosystemzPageIndex = 0;
+    ecosystemzItemWidth = 305;
+    // broadcast
+    broadcastInterval: any;
+    broadcastIndex = 0;
+    broadcastTotal = 2;
+
     constructor(private commonService: CommonService, private apiService: ApiService, private router: Router) {
         this.lang = this.commonService.lang;
     }
 
     ngOnInit() {
+        this.renderEcosystemz();
+        fromEvent(window, 'resize').subscribe(() => {
+            this.renderEcosystemz();
+        });
         this.langSub = this.commonService.langSub$.subscribe(res => {
             this.lang = res;
         });
@@ -35,14 +50,63 @@ export class HomeComponent implements OnInit, OnDestroy {
         this.queryCountTime = setInterval(() => {
             this.getAllCounts();
         }, 20000);
+
+        const broadcastList = document.getElementsByClassName('broadcast_content')[0].getElementsByTagName('p');
+        this.broadcastInterval = setInterval(() => {
+            broadcastList[this.broadcastIndex].removeAttribute('class');
+            this.broadcastIndex = this.broadcastIndex < this.broadcastTotal - 1 ? ++this.broadcastIndex : 0;
+            broadcastList[this.broadcastIndex].setAttribute('class', 'active');
+        }, 2000);
     }
 
     ngOnDestroy(): void {
         window.clearInterval(this.queryCountTime);
+        window.clearInterval(this.broadcastInterval);
 
         if (this.langSub) {
             this.langSub.unsubscribe();
         }
+    }
+
+    renderEcosystemz() {
+        this.ecosystemzLen = 4;
+        this.ecosystemzItemWidth = 305;
+        if (window.innerWidth <= 1400) {
+            this.ecosystemzLen = 3;
+        }
+        if (window.innerWidth <= 1090) {
+            this.ecosystemzLen = 2;
+        }
+        if (window.innerWidth <= 780) {
+            this.ecosystemzLen = 1;
+        }
+        if (window.innerWidth <= 405) {
+            this.ecosystemzItemWidth = window.innerWidth - 100;
+        }
+    }
+
+    preEcosystemPage() {
+        if (this.ecosystemzPageIndex > 0) {
+            this.toEcosystemPage(--this.ecosystemzPageIndex);
+        }
+    }
+
+    nextEcosystemPage() {
+        if (this.ecosystemzPageIndex < Math.ceil(this.ecosystemzTotal / this.ecosystemzLen) - 1) {
+            this.toEcosystemPage(++this.ecosystemzPageIndex);
+        }
+    }
+
+    toEcosystemPage(page: number) {
+        this.ecosystemzPageIndex = page;
+        this.ecosystemzFirstIndex = this.ecosystemzLen * page;
+        document
+            .getElementsByClassName('ecosystem_content')[0]
+            .setAttribute(
+                'style',
+                `margin-left: -${this.ecosystemzItemWidth * this.ecosystemzFirstIndex}px; transition: margin-left ${0.4 *
+                    this.ecosystemzLen}s`
+            );
     }
 
     getAllCounts() {

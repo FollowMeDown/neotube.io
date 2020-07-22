@@ -13,6 +13,9 @@ export class AppComponent implements OnInit {
     currentPage = '';
     copyRightYear = new Date().getFullYear();
     showDropdown = false;
+    showPcAssetDropdown = false;
+    showIpadAssetDropdown = false;
+    showMobileAssetDropdown = false;
 
     searchVal = '';
 
@@ -20,6 +23,8 @@ export class AppComponent implements OnInit {
     isAssetPattern = /^([0-9a-f]{40})$/;
     isAddressPattern = /^A([0-9a-zA-Z]{33})$/;
     isNumberPattern = /^\d+$/;
+    neoRankLink = '/asset/0xc56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b/page/';
+    gasRankLink = '/asset/0x602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7/page/';
 
     constructor(private commonService: CommonService, private apiService: ApiService, private router: Router) {
         this.lang = this.commonService.lang;
@@ -127,5 +132,10 @@ export class AppComponent implements OnInit {
             newHash = `lang=${this.lang}`;
         }
         location.hash = newHash;
+    }
+
+    hiddleMenu() {
+        this.showDropdown = false;
+        this.showMobileAssetDropdown = false;
     }
 }

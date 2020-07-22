@@ -13,10 +13,25 @@
                     {{'Transactions' | translate: lang}}</li>
                 <li routerLink="/addresses/page/1" [ngClass]="{active: currentPage.indexOf('/address')>=0}">
                     {{'Addresses' | translate: lang}}</li>
-                <li routerLink="/assets/page/1"
+                <li class="asset-item"
                     [ngClass]="{active: currentPage.indexOf('/asset')>=0 || currentPage.indexOf('/nep5/')>=0}">
-                    {{'Assets' | translate: lang}}</li>
-                <li routerLink="/tokens-nft" [ngClass]="{active: currentPage.indexOf('/tokens-nft')>=0}">Explore NFT</li>
+                    <span (click)="showPcAssetDropdown = !showPcAssetDropdown">{{'Assets' | translate: lang}}</span>
+                    <section class="cover-bg" [ngClass]="{showDropdown: showPcAssetDropdown}"
+                        (click)="showPcAssetDropdown = false"></section>
+                    <ul class="cover-content" [ngClass]="{showDropdown: showPcAssetDropdown}">
+                        <li (click)="showPcAssetDropdown = false" routerLink="/assets/page/1"
+                            [ngClass]="{active: currentPage.indexOf('/assets/page')>=0}">
+                            {{'Assets List' | translate: lang}}</li>
+                        <li (click)="showPcAssetDropdown = false" [routerLink]="neoRankLink + '1'"
+                            [ngClass]="{active: currentPage.indexOf(neoRankLink)>=0}">
+                            {{'Neo rank' | translate: lang}}</li>
+                        <li (click)="showPcAssetDropdown = false" [routerLink]="gasRankLink + '1'"
+                            [ngClass]="{active: currentPage.indexOf(gasRankLink)>=0}">
+                            {{'GAS rank' | translate: lang}}</li>
+                    </ul>
+                </li>
+                <li routerLink="/tokens-nft" [ngClass]="{active: currentPage.indexOf('/tokens-nft')>=0}">Explore NFT
+                </li>
             </ul>
             <ul class="header-right">
                 <li class="search"><input type="text" class="over-ellipsis"
@@ -44,33 +59,63 @@
                     {{'Transactions' | translate: lang}}</li>
                 <li routerLink="/addresses/page/1" [ngClass]="{active: currentPage.indexOf('/address')>=0}">
                     {{'Addresses' | translate: lang}}</li>
-                <li routerLink="/assets/page/1"
+                <li class="asset-item"
                     [ngClass]="{active: currentPage.indexOf('/asset')>=0 || currentPage.indexOf('/nep5/')>=0}">
-                    {{'Assets' | translate: lang}}</li>
-                <li routerLink="/tokens-nft" [ngClass]="{active: currentPage.indexOf('/tokens-nft')>=0}">Explore NFT</li>
+                    <span (click)="showIpadAssetDropdown = !showIpadAssetDropdown">{{'Assets' | translate: lang}}</span>
+                    <section class="cover-bg" [ngClass]="{showDropdown: showIpadAssetDropdown}"
+                        (click)="showIpadAssetDropdown = false">
+                    </section>
+                    <ul class="cover-content" [ngClass]="{showDropdown: showIpadAssetDropdown}">
+                        <li (click)="showIpadAssetDropdown = false" routerLink="/assets/page/1"
+                            [ngClass]="{active: currentPage.indexOf('/assets/page')>=0}">
+                            {{'Assets List' | translate: lang}}</li>
+                        <li (click)="showIpadAssetDropdown = false" [routerLink]="neoRankLink + '1'"
+                            [ngClass]="{active: currentPage.indexOf(neoRankLink)>=0}">
+                            {{'Neo rank' | translate: lang}}</li>
+                        <li (click)="showIpadAssetDropdown = false" [routerLink]="gasRankLink + '1'"
+                            [ngClass]="{active: currentPage.indexOf(gasRankLink)>=0}">
+                            {{'GAS rank' | translate: lang}}</li>
+                    </ul>
+                </li>
+                <li routerLink="/tokens-nft" [ngClass]="{active: currentPage.indexOf('/tokens-nft')>=0}">Explore NFT
+                </li>
             </ul>
         </nav>
         <nav class="mobile-nav">
             <img class="logo" src="/assets/images/logo.png" alt="logo" routerLink="/home">
             <div class="menu">
                 <img src="/assets/images/menu.svg" alt="" (click)="showDropdown = !showDropdown">
-                <section [ngClass]="{showDropdown: showDropdown}" (click)="showDropdown = false"></section>
-                <ul [ngClass]="{showDropdown: showDropdown}">
-                    <li (click)="showDropdown = false" routerLink="/home"
+                <section class="cover-bg" [ngClass]="{showDropdown: showDropdown}" (click)="hiddleMenu()">
+                </section>
+                <ul class="cover-content" [ngClass]="{showDropdown: showDropdown}">
+                    <li (click)="hiddleMenu()" routerLink="/home"
                         [ngClass]="{active: currentPage==='/' || currentPage==='/home'}">
                         {{'Home' | translate: lang}}</li>
-                    <li (click)="showDropdown = false" routerLink="/blocks/page/1"
+                    <li (click)="hiddleMenu()" routerLink="/blocks/page/1"
                         [ngClass]="{active: currentPage.indexOf('block')>=0}">
                         {{'Blocks' | translate: lang}}</li>
-                    <li (click)="showDropdown = false" routerLink="/transactions/page/1"
+                    <li (click)="hiddleMenu()" routerLink="/transactions/page/1"
                         [ngClass]="{active: currentPage.indexOf('/transaction')>=0}">
                         {{'Transactions' | translate: lang}}</li>
-                    <li (click)="showDropdown = false" routerLink="/addresses/page/1"
+                    <li (click)="hiddleMenu()" routerLink="/addresses/page/1"
                         [ngClass]="{active: currentPage.indexOf('/address')>=0}">
                         {{'Addresses' | translate: lang}}</li>
-                    <li (click)="showDropdown = false" routerLink="/assets/page/1"
+                    <li class="asset-item"
                         [ngClass]="{active: currentPage.indexOf('/asset')>=0 || currentPage.indexOf('/nep5/')>=0}">
-                        {{'Assets' | translate: lang}}</li>
+                        <span
+                            (click)="showMobileAssetDropdown = !showMobileAssetDropdown">{{'Assets' | translate: lang}}</span>
+                        <ul class="cover-content level2" [ngClass]="{showDropdown: showMobileAssetDropdown}">
+                            <li (click)="hiddleMenu()" routerLink="/assets/page/1"
+                                [ngClass]="{active: currentPage.indexOf('/assets/page')>=0}">
+                                {{'Assets List' | translate: lang}}</li>
+                            <li (click)="hiddleMenu()" [routerLink]="neoRankLink + '1'"
+                                [ngClass]="{active: currentPage.indexOf(neoRankLink)>=0}">
+                                {{'Neo rank' | translate: lang}}</li>
+                            <li (click)="hiddleMenu()" [routerLink]="gasRankLink + '1'"
+                                [ngClass]="{active: currentPage.indexOf(gasRankLink)>=0}">
+                                {{'GAS rank' | translate: lang}}</li>
+                        </ul>
+                    </li>
                     <li (click)="showDropdown = false" routerLink="/tokens-nft"
                         [ngClass]="{active: currentPage.indexOf('/tokens-nft')>=0}">Explore NFT</li>
                 </ul>
@@ -78,7 +123,8 @@
         </nav>
     </header>
 
-    <section class="content" [ngClass]="{isNotHome: currentPage!=='/' && currentPage!=='/home' && currentPage!=='/tokens-nft'}">
+    <section class="content"
+        [ngClass]="{isNotHome: currentPage!=='/' && currentPage!=='/home' && currentPage!=='/tokens-nft'}">
         <router-outlet></router-outlet>
     </section>
 
