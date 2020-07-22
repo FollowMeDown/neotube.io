@@ -96,12 +96,16 @@
         display: flex;
         align-items: center;
         padding: 0 30px;
-        @media screen and (max-width: 420px) {
-            padding: 0 10px;
-        }
         img {
             height: 22px;
-            margin-right: 23px;
+            margin-right: 20px;
+        }
+        @media screen and (max-width: 420px) {
+            padding: 0 10px;
+            font-size: 12px;
+            img {
+                margin-right: 12px;
+            }
         }
         .broadcast_content {
             height: 100%;
@@ -114,7 +118,8 @@
             }
             p {
                 height: 100%;
-                line-height: 50px;
+                display: flex;
+                align-items: center;
                 position: absolute;
                 top: 50px;
                 transition: top 0.4s;
@@ -447,7 +452,9 @@ section.partners {
             padding-top: 40px;
         }
         .ecosystem_item {
-            .name, .desc, .link {
+            .name,
+            .desc,
+            .link {
                 padding: 0 20px !important;
             }
         }
