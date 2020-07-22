@@ -1,0 +1,173 @@
+.page-content {
+    & > .info {
+        width: 1130px;
+        max-width: 100%;
+        margin-top: 40px;
+        padding: 30px 0;
+        background: rgba(255, 255, 255, 1);
+        box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.1);
+        .info-name {
+            padding: 0 30px;
+            font-size: 24px;
+            font-weight: bold;
+            color: rgba(33, 37, 41, 1);
+            margin-bottom: 30px;
+            img {
+                width: 50px;
+                vertical-align: middle;
+                margin-right: 19px;
+            }
+        }
+        .title {
+            padding: 0 30px;
+            height: 40px;
+            line-height: 40px;
+            background: rgba(250, 250, 250, 1);
+            font-size: 16px;
+            font-weight: bold;
+            color: rgba(51, 51, 51, 1);
+        }
+        .address {
+            margin: 0 30px;
+            .address-item {
+                position: relative;
+                display: inline-block;
+                height: 50px;
+                line-height: 50px;
+                border-bottom: 1px solid #eeeeee;
+                &.left {
+                    width: 45%;
+                }
+                &.right {
+                    width: 55%;
+                    padding-left: 5%;
+                }
+                &.left::after {
+                    position: absolute;
+                    content: '';
+                    top: 30%;
+                    right: 0;
+                    width: 1px;
+                    height: 40%;
+                    background: #eee;
+                }
+                @media screen and (max-width: 950px) {
+                    &.left {
+                        width: 100%;
+                        &::after {
+                            height: 0;
+                        }
+                    }
+                    &.right {
+                        width: 100%;
+                        padding-left: 0;
+                    }
+                }
+                .name {
+                    display: inline-block;
+                    width: 140px;
+                    font-size: 14px;
+                    font-weight: 500;
+                    color: rgba(91, 96, 100, 1);
+                }
+                .value {
+                    display: inline-block;
+                    width: calc(100% - 140px);
+                    font-size: 14px;
+                    font-weight: 500;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    vertical-align: middle;
+                    color: rgba(0, 175, 146, 1);
+                    a:not(:last-child) {
+                        margin-right: 18px;
+                    }
+                    img {
+                        width: 20px;
+                        vertical-align: middle;
+                        &:hover {
+                            transform: scale(1.1);
+                        }
+                    }
+                }
+            }
+        }
+        .desc {
+            margin-top: 30px;
+            padding: 0 30px;
+            font-size: 14px;
+            font-weight: 500;
+            color: rgba(91, 96, 100, 1);
+            line-height: 28px;
+        }
+    }
+    .nfts {
+        .title {
+            margin-top: 50px;
+            margin-bottom: 24px;
+            font-size: 20px;
+            font-weight: bold;
+            color: rgba(51, 51, 51, 1);
+        }
+        .nft-group {
+            .nft-item {
+                position: relative;
+                cursor: pointer;
+                display: inline-flex;
+                align-items: center;
+                justify-content: space-between;
+                margin-bottom: 20px;
+                padding: 30px 50px;
+                width: 555px;
+                max-width: 100%;
+                height: 150px;
+                background: rgba(255, 255, 255, 1);
+                box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.1);
+                &:hover {
+                    box-shadow: 0px 8px 17px 0px rgba(0, 0, 0, 0.14);
+                }
+                &:nth-child(2n-1) {
+                    margin-right: 20px;
+                }
+                .info {
+                    width: calc(100% - 70px);
+                    .info-name {
+                        font-size: 18px;
+                        font-weight: bold;
+                        color: rgba(33, 37, 41, 1);
+                        margin-bottom: 24px;
+                    }
+                    .count {
+                        .count-item {
+                            display: inline-block;
+                            width: 50%;
+                            padding-right: 10px;
+                            .value {
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                font-size: 22px;
+                                font-weight: bold;
+                                color: rgba(0, 175, 146, 1);
+                                margin-bottom: 15px;
+                            }
+                            .name {
+                                font-size: 14px;
+                                font-weight: 500;
+                                color: rgba(172, 172, 172, 1);
+                            }
+                        }
+                    }
+                }
+                @media screen and (max-width: 600px) {
+                    padding: 30px;
+                    .info .count .count-item .value {
+                        font-size: 20px;
+                    }
+                }
+                img {
+                    width: 70px;
+                }
+            }
+        }
+    }
+}

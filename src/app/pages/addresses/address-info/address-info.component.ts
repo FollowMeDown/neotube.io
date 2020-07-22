@@ -23,7 +23,9 @@ export class AddressInfoComponent implements OnInit, OnDestroy {
 
     transfer: any = [];
     transferNep5: any = [];
+    transferNft: any = [];
     addrAssets: any = ['0'];
+    nftAsset: any;
     transTotal = 0;
     show: any = [];
     address: string;
@@ -83,16 +85,30 @@ export class AddressInfoComponent implements OnInit, OnDestroy {
             this.show[i] = false;
             this.transfer[i] = 0;
             this.transferNep5[i] = 0;
+            this.transferNft[i] = 0;
         }
     }
 
-    showInfo(index, txid) {
+    getNftTx(index: number, txid: string) {
+        this.apiService.GetNftTxByTxId(txid).subscribe((res: any) => {
+            if (res.code === 200 && res.result && res.result.nft_txs) {
+                this.transferNft[index] = res.result.nft_txs;
+            }
+        });
+    }
+
+    showInfo(index: number, txid: string, isNft = false) {
         this.show[index] = !this.show[index];
-        if (this.show[index] && this.transfer[index] === 0 && this.transferNep5[index] === 0) {
+        if (this.show[index] && this.transfer[index] === 0 && this.transferNep5[index] === 0 && this.transferNft[index] === 0) {
             this.transfer[index] = '';
             this.transferNep5[index] = '';
-            this.getTransferByTxid(index, txid);
-            this.getNep5TransferByTxid(index, txid);
+            this.transferNft[index] = '';
+            if (isNft) {
+                this.getNftTx(index, txid);
+            } else {
+                this.getTransferByTxid(index, txid);
+                this.getNep5TransferByTxid(index, txid);
+            }
         }
     }
 
@@ -237,9 +253,10 @@ export class AddressInfoComponent implements OnInit, OnDestroy {
     }
 
     getAddrAssets() {
-        this.apiService.GetAddrAssets(this.address).subscribe((res: any) => {
+        this.apiService.GetAssetByAddress(this.address).subscribe((res: any) => {
             if (res.code === 200) {
-                this.addrAssets = this.balanceFilter(res.result);
+                this.addrAssets = this.balanceFilter(res.result.assets);
+                this.nftAsset = res.result.nft;
             } else if (res.code === 1000) {
                 this.addrAssets = [];
             } else {

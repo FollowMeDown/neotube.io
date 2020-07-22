@@ -12,7 +12,10 @@ import {
     BlockInfoComponent,
     AssetInfoComponent,
     TransactionInfoComponent,
-    NotsearchComponent
+    NotsearchComponent,
+    TokensNftComponent,
+    NftComponent,
+    ProjectComponent
 } from './pages';
 
 const routes: Routes = [
@@ -32,13 +35,17 @@ const routes: Routes = [
     { path: 'transactions/page/:page', component: TransactionsComponent },
     { path: 'transaction/:txid', component: TransactionInfoComponent },
 
+    { path: 'tokens-nft', component: TokensNftComponent },
+    { path: 'tokens-nft/project', component: ProjectComponent },
+    { path: 'tokens-nft/:assetId/page/:page', component: NftComponent },
+
     { path: 'notfound', component: NotfoundComponent },
     { path: 'notsearch/:id', component: NotsearchComponent },
     { path: '**', redirectTo: '/home' }
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes, {scrollPositionRestoration: 'enabled'})],
+    imports: [RouterModule.forRoot(routes, { scrollPositionRestoration: 'enabled' })],
     exports: [RouterModule]
 })
 export class AppRoutingModule {}

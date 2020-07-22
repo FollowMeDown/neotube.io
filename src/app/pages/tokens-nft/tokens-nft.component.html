@@ -1,0 +1,49 @@
+<section class="welcome">
+    <h2>{{ 'Non-Fungible Token Explorer' | translate: lang }}</h2>
+    <p>{{ 'Fast, correct handy Neo blockchain information platform' | translate: lang }}</p>
+</section>
+<section class="page-content">
+    <!-- <p class="title">{{ 'Projects' | translate: lang }}</p>
+    <div class="project-group">
+        <div class="project-item" routerLink="/tokens-nft/project">
+            <img src="" err-src="/assets/images/nft/default-logo.png" alt="">
+            <div class="info">
+                <p class="name">My Crypto Heroes</p>
+                <p class="desc">Strategic multiplayer battle game</p>
+            </div>
+        </div>
+        <div class="project-item" routerLink="/tokens-nft/project">
+            <img src="" err-src="/assets/images/nft/default-logo.png" alt="">
+            <div class="info">
+                <p class="name">My Crypto Heroes</p>
+                <p class="desc">Strategic multiplayer battle game</p>
+            </div>
+        </div>
+        <div class="project-item" routerLink="/tokens-nft/project">
+            <img src="" err-src="/assets/images/nft/default-logo.png" alt="">
+            <div class="info">
+                <p class="name">My Crypto Heroes</p>
+                <p class="desc">Strategic multiplayer battle game</p>
+            </div>
+        </div>
+    </div> -->
+    <p class="title">{{ 'Explore NFTs' | translate: lang }}</p>
+    <div class="nft-group">
+        <div class="nft-item" *ngFor="let item of displayList" routerLink="/tokens-nft/{{item?.assetId}}/page/1">
+            <div class="info">
+                <p class="info-name">{{ item?.name }}</p>
+                <div class="count">
+                    <div class="count-item">
+                        <p class="value">{{ item?.transfers | number }}</p>
+                        <p class="name">{{ 'Transfers' | translate: lang }}</p>
+                    </div>
+                    <div class="count-item">
+                        <p class="value">{{ item?.holdingAddresses | number }}</p>
+                        <p class="name">{{ 'Holders' | translate: lang }}</p>
+                    </div>
+                </div>
+            </div>
+            <img [src]="item?.image" err-src="/assets/images/nft/default-logo.png" alt="">
+        </div>
+    </div>
+</section>

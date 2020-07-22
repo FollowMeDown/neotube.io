@@ -1,12 +1,22 @@
 <section class="welcome">
     <h2>{{ 'Welcome to NeoTube' | translate: lang }}</h2>
-    <p>{{ 'Fast, correct handy NEO blockchain information platform' | translate: lang }}</p>
+    <p>{{ 'Fast, correct handy Neo blockchain information platform' | translate: lang }}</p>
     <div class="search"><input type="text" class="over-ellipsis"
             [placeholder]="'Block Height, Hash, Address or Transaction id' | translate: lang" [(ngModel)]="searchVal"
             (keyup.enter)="search()"><button (click)="search()"><img src="/assets/images/search.png"
                 alt="search"></button>
     </div>
 </section>
+<div class="broadcast">
+    <div class="broadcast_container">
+        <img src="/assets/images/home/broadcast.png" alt="">
+        <div class="broadcast_content">
+            <p class="active">{{ 'broadcast1' | translate: lang }}</p>
+            <p><a href="https://docs.google.com/forms/d/e/1FAIpQLSfQNNMNgRa5E116uI8cl9Dw87QWT3Zwq01P_vpAg9q1NYbuxA/viewform"
+                    target="_blank">{{ 'broadcast2' | translate: lang }}</a></p>
+        </div>
+    </div>
+</div>
 <section class="all-count">
     <ul>
         <li routerLink="/blocks/page/1">
@@ -25,5 +35,141 @@
             <p>{{ 'Total Addresses' | translate: lang }}</p>
             <p>{{ total?.addressCounts | number }}</p>
         </li>
+        <li routerLink="/addresses/page/1">
+            <p>{{ 'Transactions per day' | translate: lang }}</p>
+            <p>{{ total?.txCountPerDay | number }}</p>
+        </li>
     </ul>
+</section>
+
+<section class="ecosystem">
+    <img src="/assets/images/home/new-pre.png" (click)="preEcosystemPage()" class="pre page" alt="">
+    <img src="/assets/images/home/new-next.png" (click)="nextEcosystemPage()" class="next page" alt="">
+    <div class="ecosystem_header">
+        <p class="ecosystem_title section_title">{{ 'Discover the Ecosystem' | translate: lang }}</p>
+        <div class="ecosystem_category">
+            {{ 'Awesome apps' | translate: lang }}
+        </div>
+    </div>
+    <div class="ecosystem_wrap">
+        <ul class="ecosystem_content">
+            <li class="ecosystem_item">
+                <div class="name">
+                    <img src="/assets/images/home/app-o3.png" alt="">
+                    <span>O3 Labs</span>
+                </div>
+                <div class="desc">
+                    {{ 'O3, A leadingcrypto wallet, gateway to the Smart Economy' | translate: lang }}
+                </div>
+                <a href="https://o3.network/" target="_blank">
+                    <div class="link">
+                        <img src="/assets/images/home/new-link.png" alt="">
+                        <span>https://o3.network</span>
+                    </div>
+                </a>
+            </li>
+            <li class="ecosystem_item">
+                <div class="name">
+                    <img src="/assets/images/home/app-switcheo.png" alt="">
+                    <span>Switcheo</span>
+                </div>
+                <div class="desc">
+                    {{ 'DEX on Ethereum, EOS and NEO blockchains' | translate: lang}}
+                </div>
+                <a href="https://switcheo.network/" target="_blank">
+                    <div class="link">
+                        <img src="/assets/images/home/new-link.png" alt="">
+                        <span>https://switcheo.network</span>
+                    </div>
+                </a>
+            </li>
+            <li class="ecosystem_item">
+                <div class="name">
+                    <img src="/assets/images/home/app-nash.jpg" alt="">
+                    <span>nash</span>
+                </div>
+                <div class="desc">
+                    {{ 'Integrated financial services platform' | translate: lang}}
+                </div>
+                <a href="https://nash.io/" target="_blank">
+                    <div class="link">
+                        <img src="/assets/images/home/new-link.png" alt="">
+                        <span>https://nash.io</span>
+                    </div>
+                </a>
+            </li>
+            <li class="ecosystem_item">
+                <div class="name">
+                    <img src="/assets/images/home/app-nnt.jpg" alt="">
+                    <span>NNT</span>
+                </div>
+                <div class="desc">
+                    {{ 'Keep up-to-date with the latest ecosystem news' | translate: lang}}
+                </div>
+                <a href="https://neonewstoday.com/" target="_blank">
+                    <div class="link">
+                        <img src="/assets/images/home/new-link.png" alt="">
+                        <span>https://neonewstoday.com</span>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- <div class="ecosystem_page">
+        <span class="item" [ngClass]="{active: ecosystemzPageIndex === 0}" (click)="toEcosystemPage(0)"></span>
+        <span class="item" [ngClass]="{active: ecosystemzPageIndex === 1}" (click)="toEcosystemPage(1)"></span>
+        <span class="item" *ngIf="this.ecosystemzLen <= 3" [ngClass]="{active: ecosystemzPageIndex === 2}"
+            (click)="toEcosystemPage(2)"></span>
+        <span class="item" *ngIf="this.ecosystemzLen <= 2" [ngClass]="{active: ecosystemzPageIndex === 3}"
+            (click)="toEcosystemPage(3)"></span>
+    </div> -->
+</section>
+
+<section class="contact">
+    <p class="contact_title section_title">{{ 'Contact us' | translate: lang }}</p>
+    <div class="contact_content">
+        <div class="contact_item">
+            <img src="/assets/images/home/contact-feedback.png" alt="">
+            <p class="title">{{ 'Feedback' | translate:lang }}</p>
+            <p class="email">support@neonext.io</p>
+        </div>
+        <div class="contact_item">
+            <img src="/assets/images/home/contact-donation.png" alt="">
+            <p class="title">{{ 'Donation' | translate: lang }}</p>
+            <p class="email">AUm2p6e2m3K4gQ7CdJWYfejNVmDhkJPmVb</p>
+        </div>
+        <div class="contact_item">
+            <img src="/assets/images/home/contact-cooperation.png" alt="">
+            <p class="title">{{ 'Cooperation' | translate: lang }}</p>
+            <p class="email">business@neonext.io</p>
+        </div>
+    </div>
+</section>
+
+<section class="partners">
+    <div class="partners_container">
+        <p class="partners_title section_title">{{ 'Partners' | translate: lang }}</p>
+        <div class="partners_content row-1">
+            <a href="https://neo.org/" target="_blank">
+                <img src="/assets/images/home/partners-neo.png" alt="">
+            </a>
+            <a href="https://o3.network/" target="_blank">
+                <img src="/assets/images/home/partners-o3.png" alt="">
+            </a>
+            <a href="https://neoline.io/" target="_blank">
+                <img src="/assets/images/home/partners-neoline.png" alt="">
+            </a>
+            <a href="https://ndapp.org/" target="_blank">
+                <img src="/assets/images/home/partners-ndapp.png" alt="">
+            </a>
+        </div>
+        <div class="partners_content row-2">
+            <a href="https://switcheo.network/" target="_blank">
+                <img src="/assets/images/home/partners-switcheo.png" alt="">
+            </a>
+            <a href="https://neonewstoday.com/" target="_blank">
+                <img src="/assets/images/home/partners-nnt.png" alt="">
+            </a>
+        </div>
+    </div>
 </section>

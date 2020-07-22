@@ -15,7 +15,8 @@ export class TransactionInfoComponent implements OnInit, OnDestroy {
 
     transfer: any = [];
     transferNep5: any = [];
-    txInfo: any = [];
+    transferNft: any = [];
+    txInfo: any = {};
     scripts: any = {};
     txid: string;
     isHashPattern: any = /^(0x)([0-9a-f]{64})$/;
@@ -54,13 +55,24 @@ export class TransactionInfoComponent implements OnInit, OnDestroy {
     initPage() {
         this.transfer = '';
         this.transferNep5 = '';
-        this.txInfo = [];
+        this.transferNft = '';
+        this.txInfo = {};
         this.scripts = {};
         this.apiService.GetTXByTXID(this.txid).subscribe((res: any) => {
             if (res.code === 200) {
-                this.txInfo = res.result;
+                if (res.result.nft_txs) {
+                    this.transferNft = res.result.nft_txs;
+                    this.txInfo = res.result.tx;
+                    this.scripts = res.result.script;
+                } else {
+                    this.txInfo = res.result;
+                    this.getTxData();
+                }
             }
         });
+    }
+
+    getTxData() {
         this.apiService.GetScripts(this.txid).subscribe((res: any) => {
             if (res.code === 200) {
                 this.scripts = res.result;

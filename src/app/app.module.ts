@@ -19,7 +19,10 @@ import {
     BlockInfoComponent,
     AssetInfoComponent,
     TransactionInfoComponent,
-    NotsearchComponent
+    NotsearchComponent,
+    TokensNftComponent,
+    NftComponent,
+    ProjectComponent
 } from './pages';
 
 const PAGECOMPONENTS = [
@@ -33,7 +36,10 @@ const PAGECOMPONENTS = [
     BlockInfoComponent,
     AssetInfoComponent,
     TransactionInfoComponent,
-    NotsearchComponent
+    NotsearchComponent,
+    TokensNftComponent,
+    NftComponent,
+    ProjectComponent
 ];
 
 @NgModule({

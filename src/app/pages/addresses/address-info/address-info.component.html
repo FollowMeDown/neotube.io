@@ -11,15 +11,28 @@
             </div>
         </li>
     </ul>
-    <ul class="assets-info" *ngIf="addrAssets.length === 0">
+    <h2 class="header-title">{{ 'NFT Assets' | translate: lang }}</h2>
+    <ul class="assets-info" *ngIf="nftAsset">
+        <li *ngFor="let item of nftAsset">
+            <div>
+                <p class="data">{{ item?.balance | unlimitedNumber: lang }}</p>
+                <p class="name">{{ item?.symbol + ' #' + item?.tokenId }}</p>
+            </div>
+        </li>
+    </ul>
+    <ul class="assets-info" *ngIf="addrAssets.length === 0 && !nftAsset">
         <li class="textmiddle">{{ 'The balance of this address is 0' | translate: lang }}</li>
     </ul>
     <div class="asset-chart">
-        <h2 class="header-title" *ngIf="chartOption === 30">GAS - {{ 'Last 30 days transactions' | translate: lang }}</h2>
-        <h2 class="header-title" *ngIf="chartOption === 90">GAS - {{ 'Last 90 days transactions' | translate: lang }}</h2>
+        <h2 class="header-title" *ngIf="chartOption === 30">GAS - {{ 'Last 30 days transactions' | translate: lang }}
+        </h2>
+        <h2 class="header-title" *ngIf="chartOption === 90">GAS - {{ 'Last 90 days transactions' | translate: lang }}
+        </h2>
         <div class="option-btn">
-            <button [ngClass]="{active: chartOption === 30 }" (click)="getGasChartData(30)">30 {{ 'Days' | translate: lang }}</button>
-            <button [ngClass]="{active: chartOption === 90 }" (click)="getGasChartData(90)">90 {{ 'Days' | translate: lang }}</button>
+            <button [ngClass]="{active: chartOption === 30 }" (click)="getGasChartData(30)">30
+                {{ 'Days' | translate: lang }}</button>
+            <button [ngClass]="{active: chartOption === 90 }" (click)="getGasChartData(90)">90
+                {{ 'Days' | translate: lang }}</button>
         </div>
         <div class="chart">
             <canvas id="myChart"></canvas>
@@ -45,13 +58,14 @@
                     <div class="col hidden">{{ item?.size | number }} Bytes</div>
                     <div class="col hidden">{{ item?.version }}</div>
                     <div class="col hidden">{{ item?.blockTime | unixTime: lang }}</div>
-                    <div class="hidden col-icon" (click)="showInfo(index, item?.txid)"><img
+                    <div class="hidden col-icon" (click)="showInfo(index, item?.txid, item?.is_nft)"><img
                             [ngClass]="{active: show[index]}" src="/assets/images/down.svg"></div>
                 </div>
-                <div class="tran-info" *ngIf="show[index] && (transfer[index] || transferNep5[index])">
+                <div class="tran-info"
+                    *ngIf="show[index] && (transfer[index] || transferNep5[index] || transferNft[index])">
                     <div class="tran-info-from">
                         <p class="info-title"
-                            *ngIf="(transfer[index] && transfer[index]?.TxUTXO !== null) || (transferNep5[index] && transferNep5[index][0]?.from !== '')">
+                            *ngIf="(transfer[index] && transfer[index]?.TxUTXO !== null) || (transferNep5[index] && transferNep5[index][0]?.from !== '') || (transferNft[index] && transferNft[index][0]?.from !== '')">
                             {{ 'Sent from' | translate: lang }}</p>
                         <div *ngIf="transfer[index] && transfer[index]?.TxUTXO !== null">
                             <div *ngFor="let txUTXO of transfer[index]?.TxUTXO">
@@ -76,11 +90,31 @@
                                 </div>
                             </div>
                         </div>
+                        <div *ngIf="transferNft[index] && transferNft[index][0]?.from !== ''">
+                            <div *ngFor="let txfrom of transferNft[index]">
+                                <div class="info-address"><a class="link-btn"
+                                        routerLink="/address/{{txfrom?.from}}/page/1">{{ txfrom?.from }}</a></div>
+                                <div class="nft-name" routerLink="/tokens-nft/{{txfrom?.assetId}}/page/1">
+                                    {{ txfrom?.symbol }}</div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="tran-info-icon"><img src="/assets/images/img-arrow.png" alt=""></div>
+                    <div class="tran-info-icon">
+                        <img class="avatar" [src]="transferNft[index][0]?.image"
+                            err-src="/assets/images/nft/default-logo.png" alt="" *ngIf="transferNft[index]">
+                        <img class="arrow" src="/assets/images/img-arrow.png" alt="">
+                        <div class="nft-info" *ngIf="transferNft[index]">
+                            <img err-src="/assets/images/nft/default-logo.png"
+                                [src]="transferNft[index][0]?.nftInfo?.image" alt="">
+                            <span>
+                                {{ transferNft[index][0]?.nftInfo ? transferNft[index][0]?.nftInfo?.name : transferNft[index][0]?.symbol }}
+                                #{{ transferNft[index][0]?.tokenId }}
+                            </span>
+                        </div>
+                    </div>
                     <div class="tran-info-to">
                         <p class="info-title"
-                            *ngIf="(transfer[index] && transfer[index]?.TxVouts !== null) || (transferNep5[index] && transferNep5[index][0]?.to !== '')">
+                            *ngIf="(transfer[index] && transfer[index]?.TxVouts !== null) || (transferNep5[index] && transferNep5[index][0]?.to !== '') || (transferNft[index] && transferNft[index][0]?.to !== '')">
                             {{ 'Sent to' | translate: lang }}</p>
                         <div *ngIf="transfer[index] && transfer[index]?.TxVouts !== null">
                             <div *ngFor="let txVout of transfer[index]?.TxVouts">
@@ -103,6 +137,14 @@
                                     <span class="link-btn"
                                         routerLink="/nep5/{{txto?.assetId}}/page/1">{{ txto?.name }}</span>
                                 </div>
+                            </div>
+                        </div>
+                        <div *ngIf="transferNft[index] && transferNft[index][0]?.to !== ''">
+                            <div *ngFor="let txto of transferNft[index]">
+                                <div class="info-address"><a class="link-btn"
+                                        routerLink="/address/{{txto?.to}}/page/1">{{ txto?.to }}</a></div>
+                                <div class="nft-name" routerLink="/tokens-nft/{{txto?.assetId}}/page/1">
+                                    {{ txto?.symbol }}</div>
                             </div>
                         </div>
                     </div>

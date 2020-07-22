@@ -4,6 +4,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { PaginatorComponent } from './compontent/paginator/paginator.component';
 import { LoadingComponent } from './compontent/loading/loading.component';
+import { NoDataComponent } from './compontent/no-data/no-data.component';
 
 import { TranslatePipe } from './pipes/translate.pipe';
 import { TransTypePipe } from './pipes/trans-type.pipe';
@@ -13,10 +14,11 @@ import { UnlimitedNumberPipe } from './pipes/unlimited-number.pipe';
 import { AssetColorDirective } from './directive/asset-color.directive';
 import { TransBorderColorDirective } from './directive/trans-border-color.directive';
 import { TransColorDirective } from './directive/trans-color.directive';
+import { ErrSrcDirective } from './directive/err-src.directive';
 
-const COMPONENTS = [PaginatorComponent, LoadingComponent];
+const COMPONENTS = [PaginatorComponent, LoadingComponent, NoDataComponent];
 const PIPES = [TranslatePipe, TransTypePipe, UnixTimePipe, UnlimitedNumberPipe];
-const DIRECTIVES = [AssetColorDirective, TransColorDirective, TransBorderColorDirective];
+const DIRECTIVES = [AssetColorDirective, TransColorDirective, TransBorderColorDirective, ErrSrcDirective];
 
 @NgModule({
     declarations: [...PIPES, ...COMPONENTS, ...DIRECTIVES],

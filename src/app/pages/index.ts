@@ -10,6 +10,10 @@ export { TransactionInfoComponent } from './transactions/transaction-info/transa
 export { AssetsComponent } from './assets/assets.component';
 export { AssetInfoComponent } from './assets/asset-info/asset-info.component';
 
+export { TokensNftComponent } from './tokens-nft/tokens-nft.component';
+export { ProjectComponent } from './tokens-nft/project/project.component';
+export { NftComponent } from './tokens-nft/nft/nft.component';
+
 export { HomeComponent } from './home/home.component';
 export { NotfoundComponent } from './notfound/notfound.component';
 export { NotsearchComponent } from './notsearch/notsearch.component';

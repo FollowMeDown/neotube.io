@@ -1,0 +1,216 @@
+<section class="page-content">
+    <div class="title">
+        <img [src]="displayData?.image" err-src="/assets/images/nft/default-logo.png" alt="">
+        {{ displayData?.name }}
+    </div>
+    <div class="overview">
+        <div class="title">
+            {{ 'Overview' | translate: lang }}
+            <span>{{ 'Launch Date' | translate: lang }}：{{ displayData?.block_time * 1000 | date: 'yyyy-MM-dd' }}</span>
+        </div>
+        <div class="content">
+            <div class="item left">
+                <span class="name">{{ 'Name' | translate: lang }}</span>
+                <div class="value">{{ displayData?.name }}</div>
+            </div>
+            <div class="item right">
+                <span class="name">{{ 'Total supply' | translate: lang }}</span>
+                <div class="value">{{ displayData?.supply | unlimitedNumber: lang }}</div>
+            </div>
+            <div class="item left">
+                <span class="name">{{ 'Holders' | translate: lang }}</span>
+                <div class="value">{{ displayData?.holdingAddresses | number }}</div>
+            </div>
+            <div class="item right">
+                <span class="name">{{ 'Blocks' | translate: lang }}</span>
+                <div class="link value" routerLink="/block/{{displayData?.block_index}}/page/1">
+                    {{ displayData?.block_index | number }}</div>
+            </div>
+            <div class="item left">
+                <span class="name">{{ 'Transfers' | translate: lang }}</span>
+                <div class="value">{{ displayData?.transfers | number }}</div>
+            </div>
+            <div class="item right">
+                <span class="name">{{ 'Precision' | translate: lang }}</span>
+                <div class="value">{{ displayData?.decimals }}</div>
+            </div>
+            <div class="item left">
+                <span class="name">{{ 'Symbol' | translate: lang }}</span>
+                <div class="value">{{ displayData?.symbol }}</div>
+            </div>
+            <div class="item right">
+                <span class="name">{{ 'Author' | translate: lang }}</span>
+                <div class="value">{{ displayData?.author }}</div>
+            </div>
+            <div class="item left">
+                <span class="name">{{ 'Email' | translate: lang }}</span>
+                <div class="value">{{ displayData?.email }}</div>
+            </div>
+            <div class="item right">
+                <span class="name">{{ 'Owner' | translate: lang }}</span>
+                <div class="value link" routerLink="/address/{{displayData?.admin_address}}/page/1">
+                    {{ displayData?.admin_address }}</div>
+            </div>
+            <div class="item">
+                <span class="name">{{ 'Contract' | translate: lang }}</span>
+                <span class="value">{{ displayData?.assetId }}</span>
+            </div>
+            <div class="desc">{{ displayData?.desc }}</div>
+        </div>
+    </div>
+    <div class="list-group">
+        <ul class="toggle">
+            <li [ngClass]="{active: isTxTable}" (click)="showList(true)">
+                {{ 'Transactions' | translate: lang }}</li>
+            <li [ngClass]="{active: !isTxTable}" (click)="showList(false)">
+                {{ 'Holders' | translate: lang }}
+                <span *ngIf="holderPage.total">({{ 100 > holderPage.total ? holderPage.total : 100 }})</span>
+            </li>
+            <li class="cover" [ngClass]="{cover_right: !isTxTable}"></li>
+        </ul>
+        <div class="list-table" *ngIf="isTxTable">
+            <div class="tran-list">
+                <app-loading *ngIf="txLoading"></app-loading>
+                <div class="row-head">
+                    <div class="col">{{ 'TXID' | translate: lang }}</div>
+                    <div class="col">{{ 'Type' | translate: lang }}</div>
+                    <div class="col hidden">{{ 'Size' | translate: lang }}</div>
+                    <div class="col hidden">{{ 'Version' | translate: lang }}</div>
+                    <div class="col hidden">{{ 'Time' | translate: lang }}</div>
+                    <div class="hidden col-icon-empty"></div>
+                </div>
+                <div class="warpper" *ngFor="let item of listTxData; index as index">
+                    <div class="row">
+                        <div class="col td-link-btn"><a class="link-btn"
+                                routerLink="/transaction/{{item?.txid}}">{{ item?.txid }}</a></div>
+                        <div class="col" [appTransColor]="item?.type">{{ item?.type | transType }}</div>
+                        <div class="col hidden">{{ item?.size | number }} Bytes</div>
+                        <div class="col hidden">{{ item?.version }}</div>
+                        <div class="col hidden">{{ item?.blockTime | unixTime: lang }}</div>
+                        <div class="hidden col-icon" (click)="showInfo(index, item?.txid, item?.is_nft)"><img
+                                [ngClass]="{active: show[index]}" src="/assets/images/down.svg"></div>
+                    </div>
+                    <div class="tran-info"
+                        *ngIf="show[index] && (transfer[index] || transferNep5[index] || transferNft[index])">
+                        <div class="tran-info-from">
+                            <p class="info-title"
+                                *ngIf="(transfer[index] && transfer[index]?.TxUTXO !== null) || (transferNep5[index] && transferNep5[index][0]?.from !== '') || (transferNft[index] && transferNft[index][0]?.from !== '')">
+                                {{ 'Sent from' | translate: lang }}</p>
+                            <div *ngIf="transfer[index] && transfer[index]?.TxUTXO !== null">
+                                <div *ngFor="let txUTXO of transfer[index]?.TxUTXO">
+                                    <div class="info-address"><a class="link-btn"
+                                            routerLink="/address/{{txUTXO?.address}}/page/1">{{ txUTXO?.address }}</a>
+                                    </div>
+                                    <div class="info-amount">
+                                        <span>{{ txUTXO?.value | unlimitedNumber: lang }}</span>&nbsp;
+                                        <span class="link-btn"
+                                            routerLink="/asset/{{txUTXO?.assetId}}/page/1">{{ txUTXO?.name }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div *ngIf="transferNep5[index] && transferNep5[index][0]?.from !== ''">
+                                <div *ngFor="let txfrom of transferNep5[index]">
+                                    <div class="info-address"><a class="link-btn"
+                                            routerLink="/address/{{txfrom?.from}}/page/1">{{ txfrom?.from }}</a></div>
+                                    <div class="info-amount">
+                                        <span>{{ txfrom?.value | unlimitedNumber: lang }}</span>&nbsp;
+                                        <span class="link-btn"
+                                            routerLink="/nep5/{{txfrom?.assetId}}/page/1">{{ txfrom?.name }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div *ngIf="transferNft[index] && transferNft[index][0]?.from !== ''">
+                                <div *ngFor="let txfrom of transferNft[index]">
+                                    <div class="info-address"><a class="link-btn"
+                                            routerLink="/address/{{txfrom?.from}}/page/1">{{ txfrom?.from }}</a></div>
+                                    <div class="nft-name" routerLink="/tokens-nft/{{txfrom.assetId}}/page/1">
+                                        {{ txfrom?.symbol }}</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tran-info-icon">
+                            <img class="avatar" [src]="transferNft[index][0]?.image"
+                                err-src="/assets/images/nft/default-logo.png" alt=""
+                                *ngIf="transferNft[index]">
+                            <img class="arrow" src="/assets/images/img-arrow.png" alt="">
+                            <div class="nft-info" *ngIf="transferNft[index]">
+                                <img err-src="/assets/images/nft/default-logo.png"
+                                    [src]="transferNft[index][0]?.nftInfo?.image" alt="">
+                                <span>
+                                    {{ transferNft[index][0]?.nftInfo ? transferNft[index][0]?.nftInfo?.name : transferNft[index][0]?.symbol }}
+                                    #{{ transferNft[index][0]?.tokenId }}
+                                </span>
+                            </div>
+                        </div>
+                        <div class="tran-info-to">
+                            <p class="info-title"
+                                *ngIf="(transfer[index] && transfer[index]?.TxVouts !== null) || (transferNep5[index] && transferNep5[index][0]?.to !== '') || (transferNft[index] && transferNft[index][0]?.to !== '')">
+                                {{ 'Sent to' | translate: lang }}</p>
+                            <div *ngIf="transfer[index] && transfer[index]?.TxVouts !== null">
+                                <div *ngFor="let txVout of transfer[index]?.TxVouts">
+                                    <div class="info-address"><a class="link-btn"
+                                            routerLink="/address/{{txVout?.address}}/page/1">{{ txVout?.address }}</a>
+                                    </div>
+                                    <div class="info-amount">
+                                        <span>{{ txVout?.value | unlimitedNumber: lang }}</span>&nbsp;
+                                        <span class="link-btn"
+                                            routerLink="/asset/{{txVout?.assetId}}/page/1">{{ txVout?.name }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div *ngIf="transferNep5[index] && transferNep5[index][0]?.to !== ''">
+                                <div *ngFor="let txto of transferNep5[index]">
+                                    <div class="info-address"><a class="link-btn"
+                                            routerLink="/address/{{txto?.to}}/page/1">{{ txto?.to }}</a></div>
+                                    <div class="info-amount">
+                                        <span>{{ txto?.value | unlimitedNumber: lang }}</span>&nbsp;
+                                        <span class="link-btn"
+                                            routerLink="/nep5/{{txto?.assetId}}/page/1">{{ txto?.name }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div *ngIf="transferNft[index] && transferNft[index][0]?.to !== ''">
+                                <div *ngFor="let txto of transferNft[index]">
+                                    <div class="info-address"><a class="link-btn"
+                                            routerLink="/address/{{txto?.to}}/page/1">{{ txto?.to }}</a></div>
+                                    <div class="nft-name" routerLink="/tokens-nft/{{txto.assetId}}/page/1">
+                                        {{ txto?.symbol }}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <app-paginator [pageIndex]="txPage.index" [pageSize]="txPage.size" [pageLength]="txPage.length"
+                (onpageGo)="onpageGo($event)">
+            </app-paginator>
+            <app-no-data *ngIf="txLoading===false && !listTxData"></app-no-data>
+        </div>
+        <div class="list-table" *ngIf="!isTxTable">
+            <div class="page-table">
+                <app-loading *ngIf="holderLoading"></app-loading>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>{{ 'Rank' | translate: lang }}</th>
+                            <th class="addr-min-width">{{ 'Address' | translate: lang }}</th>
+                            <th class="hidden">{{ 'Balance' | translate: lang }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of listHolderData; index as index">
+                            <td>{{ index + 1 + (holderPage.index - 1) * holderPage.size }}</td>
+                            <td class="addr-min-width td-link-btn over-ellipsis"><a class="link-btn"
+                                    routerLink="/address/{{item?.address}}/page/1">{{ item?.address }}</a></td>
+                            <td class="hidden">{{ item?.balance | unlimitedNumber: lang }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <app-paginator [pageIndex]="holderPage.index" [pageSize]="holderPage.size"
+                    [pageLength]="holderPage.length" (onpageGo)="onpageGo($event)">
+                </app-paginator>
+                <app-no-data *ngIf="holderLoading===false && !listHolderData"></app-no-data>
+            </div>
+        </div>
+    </div>
+</section>
