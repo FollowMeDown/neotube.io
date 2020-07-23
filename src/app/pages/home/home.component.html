@@ -11,7 +11,10 @@
     <div class="broadcast_container">
         <img src="/assets/images/home/broadcast.png" alt="">
         <div class="broadcast_content">
-            <p class="active">{{ 'broadcast1' | translate: lang }}</p>
+            <p class="active"><a target="_blank"
+                    [href]="lang === 'zh' ? 'https://mp.weixin.qq.com/s/vt-y8WNIt_nePaS4cJJwPA' : 'https://mp.weixin.qq.com/s/DEoU5ffqf8Y12Wl0s-_lpg'">
+                    {{ 'broadcast1' | translate: lang }}</a>
+            </p>
             <p><a href="https://docs.google.com/forms/d/e/1FAIpQLSfQNNMNgRa5E116uI8cl9Dw87QWT3Zwq01P_vpAg9q1NYbuxA/viewform"
                     target="_blank">{{ 'broadcast2' | translate: lang }}</a></p>
         </div>
