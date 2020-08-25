@@ -29,10 +29,37 @@ export class CommonService {
                 newarr = item.split('=');
                 if (typeof obj[newarr[0]] === 'undefined') {
                     if (newarr[0] === 'lang') {
-                        if (newarr[1] === 'zh') {
-                            obj[newarr[0]] = 'zh';
-                        } else {
-                            obj[newarr[0]] = 'en';
+                        switch (newarr[1]) {
+                            case 'zh':
+                                obj[newarr[0]] = 'zh';
+                                break;
+                            case 'en':
+                                obj[newarr[0]] = 'en';
+                                break;
+                            case 'ko':
+                                obj[newarr[0]] = 'ko';
+                                break;
+                            case 'ja':
+                                obj[newarr[0]] = 'ja';
+                                break;
+                            case 'ru':
+                                obj[newarr[0]] = 'ru';
+                                break;
+                            case 'de':
+                                obj[newarr[0]] = 'de';
+                                break;
+                            case 'fr':
+                                obj[newarr[0]] = 'fr';
+                                break;
+                            case 'es':
+                                obj[newarr[0]] = 'es';
+                                break;
+                            case 'it':
+                                obj[newarr[0]] = 'it';
+                                break;
+                            default:
+                                obj[newarr[0]] = 'en';
+                                break;
                         }
                     }
                 }

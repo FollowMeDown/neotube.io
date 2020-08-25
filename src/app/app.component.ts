@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonService, ApiService } from '@core';
-import { Router, RouterEvent, NavigationStart, NavigationEnd } from '@angular/router';
+import {
+    Router,
+    RouterEvent,
+    NavigationStart,
+    NavigationEnd
+} from '@angular/router';
 
 @Component({
     selector: 'app-root',
@@ -16,6 +21,8 @@ export class AppComponent implements OnInit {
     showPcAssetDropdown = false;
     showIpadAssetDropdown = false;
     showMobileAssetDropdown = false;
+    showLangDropdown = false;
+    showFooterLangDropdown = false;
 
     searchVal = '';
 
@@ -23,10 +30,16 @@ export class AppComponent implements OnInit {
     isAssetPattern = /^([0-9a-f]{40})$/;
     isAddressPattern = /^A([0-9a-zA-Z]{33})$/;
     isNumberPattern = /^\d+$/;
-    neoRankLink = '/asset/0xc56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b/page/';
-    gasRankLink = '/asset/0x602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7/page/';
+    neoRankLink =
+        '/asset/0xc56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b/page/';
+    gasRankLink =
+        '/asset/0x602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7/page/';
 
-    constructor(private commonService: CommonService, private apiService: ApiService, private router: Router) {
+    constructor(
+        private commonService: CommonService,
+        private apiService: ApiService,
+        private router: Router
+    ) {
         this.lang = this.commonService.lang;
         this.net = this.apiService.net;
     }
@@ -34,14 +47,19 @@ export class AppComponent implements OnInit {
     ngOnInit(): void {
         this.router.events.subscribe((res: RouterEvent) => {
             if (res instanceof NavigationStart) {
-                const urlHash: any = this.commonService.formatUrlHash(location.hash);
+                const urlHash: any = this.commonService.formatUrlHash(
+                    location.hash
+                );
                 if (urlHash.lang) {
                     this.changeLang(urlHash.lang);
                 }
             }
             if (res instanceof NavigationEnd) {
                 const searchIndex = this.router.url.lastIndexOf('#');
-                this.currentPage = this.router.url.slice(0, searchIndex === -1 ? undefined : searchIndex);
+                this.currentPage = this.router.url.slice(
+                    0,
+                    searchIndex === -1 ? undefined : searchIndex
+                );
             }
         });
     }
@@ -104,6 +122,8 @@ export class AppComponent implements OnInit {
     }
 
     changeLang(lang) {
+        this.showLangDropdown = false;
+        this.showFooterLangDropdown = false;
         if (lang === this.lang) {
             return;
         }
@@ -122,7 +142,6 @@ export class AppComponent implements OnInit {
         } else {
             location.href = `${this.apiService.testOrigin}${location.pathname}`;
         }
-
     }
 
     toNewHash() {
