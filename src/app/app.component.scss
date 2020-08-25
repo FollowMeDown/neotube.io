@@ -148,15 +148,26 @@ header {
         }
         ul.header-left {
             height: 100%;
+            display: flex;
             & > li {
                 text-align: center;
                 cursor: pointer;
                 height: 70px;
-                line-height: 70px;
-                position: relative;
+                @media screen and (max-width: 1620px) {
+                    &:not(:first-of-type) {
+                        max-width: 130px;
+                    }
+                }
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
                 padding: 0 15px;
                 &.asset-item {
+                    position: relative;
                     min-width: 100px;
+                    ul.cover-content {
+                        top: 70px;
+                    }
                 }
                 &:hover {
                     color: #00af92;
@@ -229,6 +240,9 @@ header {
     }
     nav.ipad-nav {
         display: none;
+        & > ul {
+            display: flex;
+        }
         & > ul > li {
             text-align: center;
             display: inline-block;
@@ -237,11 +251,19 @@ header {
             color: #282828;
             cursor: pointer;
             height: 70px;
-            line-height: 70px;
-            position: relative;
+            &:not(:first-of-type) {
+                max-width: 130px;
+            }
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             padding: 0 15px;
             &.asset-item {
+                position: relative;
                 min-width: 100px;
+                ul.cover-content {
+                    top: 70px;
+                }
             }
             &.active {
                 color: #00af92;
