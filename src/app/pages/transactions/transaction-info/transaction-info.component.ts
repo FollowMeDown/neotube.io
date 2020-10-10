@@ -60,7 +60,7 @@ export class TransactionInfoComponent implements OnInit, OnDestroy {
         this.scripts = {};
         this.apiService.GetTXByTXID(this.txid).subscribe((res: any) => {
             if (res.code === 200) {
-                if (res.result.nft_txs || res.result.tx || res.result.script) {
+                if (res.result.nft_txs || res.result.tx) {
                     this.transferNft = res.result.nft_txs;
                     this.txInfo = res.result.tx;
                     this.scripts = res.result.script;
