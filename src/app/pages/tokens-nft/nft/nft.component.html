@@ -108,11 +108,11 @@
                                     </div>
                                 </div>
                             </div>
-                            <div *ngIf="transferNep5[index] && transferNep5[index][0]?.from !== ''">
+                            <div *ngIf="transferNep5[index]">
                                 <div *ngFor="let txfrom of transferNep5[index]">
                                     <div class="info-address"><a class="link-btn"
                                             routerLink="/address/{{txfrom?.from}}/page/1">{{ txfrom?.from }}</a></div>
-                                    <div class="info-amount">
+                                    <div class="info-amount" *ngIf="txfrom?.from">
                                         <span>{{ txfrom?.value | unlimitedNumber: lang }}</span>&nbsp;
                                         <span class="link-btn"
                                             routerLink="/nep5/{{txfrom?.assetId}}/page/1">{{ txfrom?.name }}</span>
@@ -158,11 +158,11 @@
                                     </div>
                                 </div>
                             </div>
-                            <div *ngIf="transferNep5[index] && transferNep5[index][0]?.to !== ''">
+                            <div *ngIf="transferNep5[index]">
                                 <div *ngFor="let txto of transferNep5[index]">
                                     <div class="info-address"><a class="link-btn"
                                             routerLink="/address/{{txto?.to}}/page/1">{{ txto?.to }}</a></div>
-                                    <div class="info-amount">
+                                    <div class="info-amount" *ngIf="txto?.to">
                                         <span>{{ txto?.value | unlimitedNumber: lang }}</span>&nbsp;
                                         <span class="link-btn"
                                             routerLink="/nep5/{{txto?.assetId}}/page/1">{{ txto?.name }}</span>
