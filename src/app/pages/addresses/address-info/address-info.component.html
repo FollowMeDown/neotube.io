@@ -83,7 +83,7 @@
                             <div *ngFor="let txfrom of transferNep5[index]">
                                 <div class="info-address"><a class="link-btn"
                                         routerLink="/address/{{txfrom?.from}}/page/1">{{ txfrom?.from }}</a></div>
-                                <div class="info-amount">
+                                <div class="info-amount" *ngIf="txfrom?.from">
                                     <span>{{ txfrom?.value | unlimitedNumber: lang }}</span>&nbsp;
                                     <span class="link-btn"
                                         routerLink="/nep5/{{txfrom?.assetId}}/page/1">{{ txfrom?.name }}</span>
