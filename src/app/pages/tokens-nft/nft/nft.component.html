@@ -101,7 +101,7 @@
                                     <div class="info-address"><a class="link-btn"
                                             routerLink="/address/{{txUTXO?.address}}/page/1">{{ txUTXO?.address }}</a>
                                     </div>
-                                    <div class="info-amount">
+                                    <div class="info-amount" *ngIf="txUTXO?.address">
                                         <span>{{ txUTXO?.value | unlimitedNumber: lang }}</span>&nbsp;
                                         <span class="link-btn"
                                             routerLink="/asset/{{txUTXO?.assetId}}/page/1">{{ txUTXO?.name }}</span>
@@ -123,7 +123,7 @@
                                 <div *ngFor="let txfrom of transferNft[index]">
                                     <div class="info-address"><a class="link-btn"
                                             routerLink="/address/{{txfrom?.from}}/page/1">{{ txfrom?.from }}</a></div>
-                                    <div class="nft-name" routerLink="/tokens-nft/{{txfrom.assetId}}/page/1">
+                                    <div class="nft-name" *ngIf="txfrom?.from" routerLink="/tokens-nft/{{txfrom.assetId}}/page/1">
                                         {{ txfrom?.symbol }}</div>
                                 </div>
                             </div>
@@ -151,7 +151,7 @@
                                     <div class="info-address"><a class="link-btn"
                                             routerLink="/address/{{txVout?.address}}/page/1">{{ txVout?.address }}</a>
                                     </div>
-                                    <div class="info-amount">
+                                    <div class="info-amount" *ngIf="txVout?.address">
                                         <span>{{ txVout?.value | unlimitedNumber: lang }}</span>&nbsp;
                                         <span class="link-btn"
                                             routerLink="/asset/{{txVout?.assetId}}/page/1">{{ txVout?.name }}</span>
@@ -173,7 +173,7 @@
                                 <div *ngFor="let txto of transferNft[index]">
                                     <div class="info-address"><a class="link-btn"
                                             routerLink="/address/{{txto?.to}}/page/1">{{ txto?.to }}</a></div>
-                                    <div class="nft-name" routerLink="/tokens-nft/{{txto.assetId}}/page/1">
+                                    <div class="nft-name" *ngIf="txto?.to" routerLink="/tokens-nft/{{txto.assetId}}/page/1">
                                         {{ txto?.symbol }}</div>
                                 </div>
                             </div>
