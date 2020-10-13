@@ -84,7 +84,7 @@
                         <div class="col td-link-btn"><a class="link-btn"
                                 routerLink="/transaction/{{item?.txid}}">{{ item?.txid }}</a></div>
                         <div class="col" [appTransColor]="item?.type">{{ item?.type | transType }}</div>
-                        <div class="col hidden">{{ item?.size | number }} Bytes</div>
+                        <div class="col hidden">{{ item?.size | number }} {{ 'Bytes' | translate: lang }}</div>
                         <div class="col hidden">{{ item?.version }}</div>
                         <div class="col hidden">{{ item?.blockTime | unixTime: lang }}</div>
                         <div class="hidden col-icon" (click)="showInfo(index, item?.txid, item?.is_nft)"><img

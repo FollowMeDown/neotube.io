@@ -1,402 +1,1113 @@
 {
     "Home": {
         "en": "Home",
-        "zh": "首页"
+        "zh": "首页",
+        "ko": "홈페이지",
+        "ja": "ホームページ",
+        "ru": "Главная",
+        "de": "Start",
+        "fr": "Accueil",
+        "es": "Inicio",
+        "it": "Home"
     },
     "Days": {
         "en": "Days",
-        "zh": "天"
+        "zh": "天",
+        "ko": "일",
+        "ja": "日",
+        "ru": "День",
+        "de": "Tage",
+        "fr": "Jours",
+        "es": "Días",
+        "it": "Giorni"
     },
     "Last 30 days transactions": {
         "en": "Last 30 days transactions",
-        "zh": "最近 30 天余额变化"
+        "zh": "最近 30 天余额变化",
+        "ko": "최근 30일 트랜잭션",
+        "ja": "過去30日間のトランザクション",
+        "ru": "Транзакции за 30 дней",
+        "de": "Transaktionen der letzten 30 Tage",
+        "fr": "Transactions des 30 derniers jours",
+        "es": "últimos 30 días de transacciones",
+        "it": "Transazioni negli ultimi 30 giorni"
     },
     "Last 90 days transactions": {
         "en": "Last 90 days transactions",
-        "zh": "最近 90 天余额变化"
+        "zh": "最近 90 天余额变化",
+        "ko": "지난 90일 트랜잭션",
+        "ja": "過去90日間のトランザクション",
+        "ru": "Транзакции за 90 дней",
+        "de": "Transaktionen der letzten 90 Tage",
+        "fr": "Transactions des 90 derniers jours",
+        "es": "últimos 90 días de transacciones",
+        "it": "Transazioni negli ultimi 90 giorni"
     },
     "Transactions": {
         "en": "Transactions",
-        "zh": "交易"
+        "zh": "交易",
+        "ko": "거래",
+        "ja": "取引",
+        "ru": "Транзакции",
+        "de": "Transaktionen",
+        "fr": "Transactions",
+        "es": "Transacciones",
+        "it": "Transazioni"
     },
     "Blocks": {
         "en": "Blocks",
-        "zh": "区块"
+        "zh": "区块",
+        "ko": "블록",
+        "ja": "ブロック",
+        "ru": "Блоки",
+        "de": "Blöcke",
+        "fr": "Blocs",
+        "es": "Bloques",
+        "it": "Blocchi"
     },
     "Addresses": {
         "en": "Addresses",
-        "zh": "地址"
+        "zh": "地址",
+        "ko": "주소",
+        "ja": "アドレス",
+        "ru": "Адреса",
+        "de": "Adressen",
+        "fr": "Adresses",
+        "es": "Direcciones",
+        "it": "Indirizzi"
     },
     "Assets": {
         "en": "Assets",
-        "zh": "资产"
+        "zh": "资产",
+        "ko": "자산",
+        "ja": "資産",
+        "ru": "Активы",
+        "de": "Vermögenswerte",
+        "fr": "Actifs",
+        "es": "Activos",
+        "it": "Asset"
     },
     "MainNet": {
         "en": "MainNet",
-        "zh": "主网"
+        "zh": "主网",
+        "ko": "메인넷",
+        "ja": "MainNet",
+        "ru": "Основная сеть",
+        "de": "Hauptnetz",
+        "fr": "MainNet",
+        "es": "MainNet",
+        "it": "MainNet"
     },
     "TestNet": {
         "en": "TestNet",
-        "zh": "测试网"
+        "zh": "测试网",
+        "ko": "테스트넷",
+        "ja": "TestNet",
+        "ru": "Тестовая сеть",
+        "de": "Testnetz",
+        "fr": "TestNet",
+        "es": "TestNet",
+        "it": "TestNet"
     },
     "Block Height, Hash, Address or Transaction id": {
         "en": "Block Height, Hash, Address or Transaction id",
-        "zh": "区块高度、哈希、地址或交易 id"
+        "zh": "区块高度、哈希、地址或交易 id",
+        "ko": "블록 높이， 해시，주소 또는 트랜잭션 ID",
+        "ja": "ブロックの高さ、ハッシュ、アドレス、あるいはトランザクションID",
+        "ru": "Высота блока, хэш,адрес или ID транзакции",
+        "de": "Blockhöhe, Hash, Adresse oder Transaktions-ID",
+        "fr": "Hauteur de bloc, Hash, Adresse ou identifiant de transaction",
+        "es": "Altura de bloque, Hash, Dirección o ID de transacción",
+        "it": "Altezza Blocco, Hash, Indirizzo o id Transazione"
     },
     "Welcome to NeoTube": {
         "en": "Welcome to NeoTube",
-        "zh": "欢迎来到 NeoTube"
+        "zh": "欢迎来到 NeoTube",
+        "ko": "Neotube 오신 것을 환영합니다",
+        "ja": "NeoTubeへようこそ",
+        "ru": "Добро пожаловать на NeoTube",
+        "de": "Willkommen zu NeoTube",
+        "fr": "Bienvenue sur NeoTube",
+        "es": "Bienvenidos a NeoTube",
+        "it": "Benvenuto su NeoTube"
     },
     "Fast, correct handy Neo blockchain information platform": {
         "en": "Fast, correct, handy Neo blockchain information platform",
-        "zh": "快速、正确、便利的 Neo 区块链信息查询平台"
+        "zh": "快速、正确、便利的 Neo 区块链信息查询平台",
+        "ko": "빠르고 정확하며 편리한 NEO블록체인정보검색플랫폼",
+        "ja": "高速、正確、便利なNeoブロックチェーン情報プラットフォーム",
+        "ru": "Быстрая и удобная информационная платформа для блокчейна Neo",
+        "de": "Schneller, genauer und einfacher Zugang zu Informationen über die Neo-Blockkette.",
+        "fr": "Plate-forme d'information sur la blockchain Neo, rapide, correcte et pratique",
+        "es": "Rápido, correcto, Neo la plataforma hábil de información sobre cadena de bloques",
+        "it": "Piattaforma informativa veloce, corretta e pratica per la blockchain di Neo"
     },
     "Total Blocks": {
         "en": "Total Blocks",
-        "zh": "区块总高度"
+        "zh": "区块总高度",
+        "ko": "전체 블럭",
+        "ja": "合計ブロック",
+        "ru": "Высота блокчейна",
+        "de": "Blöcke insgesamt",
+        "fr": "Total blocs",
+        "es": "Bloques Total",
+        "it": "Blocchi Totali"
     },
     "Total Addresses": {
         "en": "Total Addresses",
-        "zh": "地址总量"
+        "zh": "地址总量",
+        "ko": "총주소",
+        "ja": "合計アドレス",
+        "ru": "Итого адресов",
+        "de": "Adressen insgesamt",
+        "fr": "Total adresses",
+        "es": "Direcciones Total",
+        "it": "Indirizzi Totali"
     },
     "Total Assets": {
         "en": "Total Assets",
-        "zh": "资产总量"
+        "zh": "资产总量",
+        "ko": "자산총액",
+        "ja": "総資産",
+        "ru": "Итого активов",
+        "de": "Gesamtvermögen",
+        "fr": "Total actifs",
+        "es": "Activos Total",
+        "it": "Asset Totali"
     },
     "Total Transactions": {
         "en": "Total Transactions",
-        "zh": "交易总量"
+        "zh": "交易总量",
+        "ko": "거래총량",
+        "ja": "合計トランザクション",
+        "ru": "Итого транзакций",
+        "de": "Transaktionen gesamt",
+        "fr": "Transaction totale",
+        "es": "Transacciones Total",
+        "it": "Transazioni Totali"
     },
     "Address information": {
         "en": "Address information",
-        "zh": "地址信息"
+        "zh": "地址信息",
+        "ko": "주소 정보",
+        "ja": "アドレス情報",
+        "ru": "Информация об адресе",
+        "de": "Informationen zur Adresse",
+        "fr": "Informations d'adresse",
+        "es": "Información de Dirección ",
+        "it": "Informazioni indirizzo"
     },
     "The balance of this address is 0": {
         "en": "The balance of this address is 0",
-        "zh": "该地址的资产为 0"
+        "zh": "该地址的资产为 0",
+        "ko": "이 주소의 자산은 0입니다",
+        "ja": "このアドレスの残高は0です",
+        "ru": "Нулевой баланс адреса",
+        "de": "Der Saldo dieser Adresse beträgt 0",
+        "fr": "Le solde de cette adresse est 0",
+        "es": "El saldo de esta dirección es 0",
+        "it": "Il saldo di questo indirizzo è 0"
     },
     "TXID": {
         "en": "TXID",
-        "zh": "交易 ID"
+        "zh": "交易 ID",
+        "ko": "거래ID",
+        "ja": "TXID",
+        "ru": "ID транзакции",
+        "de": "TXID",
+        "fr": "TXID",
+        "es": "TXID",
+        "it": "TXID"
     },
     "Type": {
         "en": "Type",
-        "zh": "类型"
+        "zh": "类型",
+        "ko": "유형",
+        "ja": "タイプ",
+        "ru": "Тип",
+        "de": "Arten von",
+        "fr": "Type",
+        "es": "Tipo",
+        "it": "Tipo"
     },
     "Size": {
         "en": "Size",
-        "zh": "大小"
+        "zh": "大小",
+        "ko": "사이즈",
+        "ja": "サイズ",
+        "ru": "Размер",
+        "de": "Größe",
+        "fr": "Taille",
+        "es": "Tamaño",
+        "it": "Dimensione"
     },
     "Version": {
         "en": "Version",
-        "zh": "版本"
+        "zh": "版本",
+        "ko": "버전",
+        "ja": "バージョン",
+        "ru": "Версия",
+        "de": "Version",
+        "fr": "Version",
+        "es": "Versión",
+        "it": "Version"
     },
     "Time": {
         "en": "Time",
-        "zh": "时间"
+        "zh": "时间",
+        "ko": "시각",
+        "ja": "時間",
+        "ru": "Время",
+        "de": "Zeit",
+        "fr": "Temps",
+        "es": "Tiempo",
+        "it": "Data"
     },
     "Sent to": {
         "en": "Sent to",
-        "zh": "发给"
+        "zh": "发给",
+        "ko": "보내기",
+        "ja": "宛先",
+        "ru": "Отправлено на адрес",
+        "de": "Senden an",
+        "fr": "Envoyé à",
+        "es": "Enviado ",
+        "it": "Inviato a"
     },
     "Sent from": {
         "en": "Sent from",
-        "zh": "来自"
+        "zh": "来自",
+        "ko": "에서 보낸",
+        "ja": "送信元",
+        "ru": "Оптравлено с адреса",
+        "de": "Empfangen von",
+        "fr": "Envoyé de",
+        "es": "Recibido ",
+        "it": "Inviato da"
     },
     "Address": {
         "en": "Address",
-        "zh": "地址"
+        "zh": "地址",
+        "ko": "주소",
+        "ja": "アドレス",
+        "ru": "Адрес",
+        "de": "Adresse",
+        "fr": "Adresse",
+        "es": "Dirección",
+        "it": "Indirizzo"
     },
     "First transaction": {
         "en": "First transaction",
-        "zh": "首次交易时间"
+        "zh": "首次交易时间",
+        "ko": "시작 트랜젝션",
+        "ja": "最初のトランザクション",
+        "ru": "Первая транзакция",
+        "de": "Erste Transaktion",
+        "fr": "Première transaction",
+        "es": "Primera Transacción",
+        "it": "Prima transazione"
     },
     "Last transaction": {
         "en": "Last transaction",
-        "zh": "最新交易时间"
+        "zh": "最新交易时间",
+        "ko": "마지막 트랜젝션 ",
+        "ja": "最後のトランザクション",
+        "ru": "Последняя транзакция",
+        "de": "Letzte Transaktion",
+        "fr": "Dernière transaction",
+        "es": "Ultima Transacción",
+        "it": "Ultima transazione"
     },
     "Asset information": {
         "en": "Asset information",
-        "zh": "资产信息"
+        "zh": "资产信息",
+        "ko": "자산정보",
+        "ja": "資産情報",
+        "ru": "Информация об активе",
+        "de": "Informationen zum Vermögen",
+        "fr": "Information sur l'actif",
+        "es": "Información de Activo ",
+        "it": "Informazioni asset"
     },
     "Name": {
         "en": "Name",
-        "zh": "名称"
+        "zh": "名称",
+        "ko": "명칭",
+        "ja": "名前",
+        "ru": "Название",
+        "de": "Name",
+        "fr": "Nom",
+        "es": "Nombre",
+        "it": "Nome"
     },
     "Total supply": {
         "en": "Total supply",
-        "zh": "总发行量"
+        "zh": "总发行量",
+        "ko": "총 공급",
+        "ja": "総供給",
+        "ru": "Количество",
+        "de": "Gesamtangebot",
+        "fr": "Quantité maximale",
+        "es": "Suministro Total",
+        "it": "Supply totale"
     },
     "Precision": {
         "en": "Precision",
-        "zh": "精度"
+        "zh": "精度",
+        "ko": "정밀도",
+        "ja": "精度",
+        "ru": "Округление",
+        "de": "Genauigkeit",
+        "fr": "Précision",
+        "es": "Precisión",
+        "it": "Precisione"
     },
     "Symbol": {
         "en": "Symbol",
-        "zh": "货币名称"
+        "zh": "货币名称",
+        "ko": "화폐 명칭",
+        "ja": "記号",
+        "ru": "Символ",
+        "de": "Währungsname",
+        "fr": "Symbole",
+        "es": "Símbolo",
+        "it": "Simbolo"
     },
     "Created": {
         "en": "Created",
-        "zh": "时间"
+        "zh": "时间",
+        "ko": "만든 날짜",
+        "ja": "作成",
+        "ru": "Создано",
+        "de": "Erstellt",
+        "fr": "Créé",
+        "es": "Generar",
+        "it": "Creato"
     },
     "Owner": {
         "en": "Owner",
-        "zh": "发行商地址"
+        "zh": "发行商地址",
+        "ko": "발행인 주소",
+        "ja": "オーナー",
+        "ru": "Владелец",
+        "de": "Eigentümer",
+        "fr": "Propriétaire",
+        "es": "Dueño",
+        "it": "Possessore"
     },
     "AssetId": {
         "en": "AssetId",
-        "zh": "资产 ID"
+        "zh": "资产 ID",
+        "ko": "자산ID",
+        "ja": "資産ID",
+        "ru": "ID актива",
+        "de": "Vermögens Id",
+        "fr": "ID d'Actif",
+        "es": "IdAsset",
+        "it": "ActivoID"
     },
     "TransactionId": {
         "en": "TransactionId",
-        "zh": "交易 ID"
+        "zh": "交易 ID",
+        "ko": "거래ID",
+        "ja": "取引ID",
+        "ru": "ID транзакции",
+        "de": "Transaction ID",
+        "fr": "ID de transaction",
+        "es": "TransacciónID",
+        "it": "IdTransazione"
     },
     "Author": {
         "en": "Author",
-        "zh": "作者"
+        "zh": "作者",
+        "ko": "작자",
+        "ja": "著者",
+        "ru": "Автор",
+        "de": "Autor",
+        "fr": "Auteur",
+        "es": "Autor",
+        "it": "Autore"
     },
     "Email": {
         "en": "Email",
-        "zh": "邮箱"
+        "zh": "邮箱",
+        "ko": "이메일",
+        "ja": "Eメール",
+        "ru": "Эл. почта",
+        "de": "Email",
+        "fr": "Email",
+        "es": "correo electrónico",
+        "it": "Email"
     },
     "Description": {
         "en": "Description",
-        "zh": "描述"
+        "zh": "描述",
+        "ko": "서술",
+        "ja": "説明",
+        "ru": "Описание",
+        "de": "Beschreibung",
+        "fr": "Description",
+        "es": "Descripción",
+        "it": "Descrizione"
     },
     "Balance rank": {
         "en": "Balance rank",
-        "zh": "资产排名"
+        "zh": "资产排名",
+        "ko": "자산 순위",
+        "ja": "バランスランク",
+        "ru": "Ранжирование по активу",
+        "de": "Rangfolge der Vermögenswerte",
+        "fr": "Rang de solde",
+        "es": "Rango de Saldo",
+        "it": "Classifica saldo"
     },
     "Rank": {
         "en": "Rank",
-        "zh": "排名"
+        "zh": "排名",
+        "ko": "랭크",
+        "ja": "ランク",
+        "ru": "Место",
+        "de": "Rang",
+        "fr": "Rang",
+        "es": "Rango",
+        "it": "Classifica"
     },
     "Balance": {
         "en": "Balance",
-        "zh": "资产"
+        "zh": "资产",
+        "ko": "자산",
+        "ja": "残高",
+        "ru": "Остаток",
+        "de": "Balance",
+        "fr": "Solde",
+        "es": "Saldo",
+        "it": "Saldo"
     },
     "Asset": {
         "en": "Asset",
-        "zh": "资产"
+        "zh": "资产",
+        "ko": "자산",
+        "ja": "資産",
+        "ru": "Актив",
+        "de": "Vermögenswerte",
+        "fr": "Actif",
+        "es": "Actigo",
+        "it": "Asset"
     },
     "Supply": {
         "en": "Supply",
-        "zh": "发行量"
+        "zh": "发行量",
+        "ko": "공급",
+        "ja": "供給量",
+        "ru": "Выпуск",
+        "de": "Verkauf",
+        "fr": "Quantité",
+        "es": "Suministro",
+        "it": "Supply"
     },
     "Registered": {
         "en": "Registered",
-        "zh": "注册地址"
+        "zh": "注册地址",
+        "ko": "등록 주소",
+        "ja": "登録アドレス",
+        "ru": "Зарегистрированный адрес",
+        "de": "Registrierte Adresse",
+        "fr": "Inscrit",
+        "es": "Registrado",
+        "it": "Registrato"
     },
     "Block information": {
         "en": "Block information",
-        "zh": "区块信息"
+        "zh": "区块信息",
+        "ko": "블록 정보",
+        "ja": "ブロック情報",
+        "ru": "Информация о блоке",
+        "de": "Informationen blockieren",
+        "fr": "Information sur le bloc",
+        "es": "Información de Bloque",
+        "it": "Informazioni blocco"
     },
     "Back": {
         "en": "Back",
-        "zh": "返回"
+        "zh": "返回",
+        "ko": "이전",
+        "ja": "返す",
+        "ru": "Назад",
+        "de": "Zurück",
+        "fr": "Retour",
+        "es": "atrás",
+        "it": "Indietro"
     },
     "Previous block": {
         "en": "Previous block",
-        "zh": "上一区块"
+        "zh": "上一区块",
+        "ko": "이전 블록",
+        "ja": "前のブロック",
+        "ru": "Пред. блок",
+        "de": "Vorheriger Block",
+        "fr": "Bloc précédent",
+        "es": "Bloque previo",
+        "it": "Blocco precedente"
     },
     "Next block": {
         "en": "Next block",
-        "zh": "下一区块"
+        "zh": "下一区块",
+        "ko": "다음 블록",
+        "ja": "次のブロック",
+        "ru": "След. блок",
+        "de": "Nächster Block",
+        "fr": "Bloc suivant",
+        "es": "Próximo Bloque",
+        "it": "Blocco successivo"
     },
     "Block index": {
         "en": "Block index",
-        "zh": "区块索引"
+        "zh": "区块索引",
+        "ko": "블록 인덱스",
+        "ja": "ブロックインデックス",
+        "ru": "Индекс блока",
+        "de": "Blockindex",
+        "fr": "Index de bloc",
+        "es": "índice de Bloque",
+        "it": "Indice blocchi"
     },
     "Merkle root": {
         "en": "Merkle root",
-        "zh": "梅克尔根"
+        "zh": "梅克尔根",
+        "ko": "머클뿌리",
+        "ja": "マークルの根",
+        "ru": "Корень Меркла",
+        "de": "Mekelgen",
+        "fr": "Racine de Merkle",
+        "es": "Raíz de Merkle",
+        "it": "Radice di Merkle"
     },
     "Sorry, Your search does not exist.": {
-        "en": "Sorry, Your search page does not exist.",
-        "zh": "对不起，你请求的页面不存在"
+        "en": "Sorry, the page you are looking for does not exist.",
+        "zh": "对不起，你请求的页面不存在",
+        "ko": "죄송합니다. 요청하신 페이지가 없습니다.",
+        "ja": "お探しのページは存在しません。",
+        "ru": "Страница недоступна",
+        "de": "Die von Ihnen angeforderte Seite ist leider nicht vorhanden",
+        "fr": "Désolé, la page que vous avez recherché n'existe pas.",
+        "es": "Lo siento, la pagina que solicitaste no puede mostrarse no existe",
+        "it": "Siamo spiacenti, La pagina cercata non esiste."
     },
     "Try going back to where you were or heading to the": {
         "en": "Try going back to where you were or heading to the",
-        "zh": "尝试返回到您所在的位置或前往"
+        "zh": "尝试返回到您所在的位置或前往",
+        "ko": "현재 위치 또는 이전으로 돌아가기",
+        "ja": "元の場所に戻るか、ホームページにアクセスしてください。",
+        "ru": "Вернитесь назад, либо перейдите на ",
+        "de": "Versuchen Sie, dorthin zurückzukehren, wo Sie sind, oder dorthin zu gehen",
+        "fr": "Essayez de retourner là où vous étiez ou de vous diriger vers",
+        "es": "Intenta volver hacia el lugar anterior",
+        "it": "Prova a tornare dove eri o vai alla"
     },
     "Try going back to where you were or heading to the home page.": {
         "en": "Try going back to where you were or heading to the home page.",
-        "zh": "尝试返回到您所在的位置或前往主页。"
+        "zh": "尝试返回到您所在的位置或前往主页。",
+        "ko": "현재 위치 또는 이전으로 돌아가기",
+        "ja": "元の場所に戻るか、ホームページにアクセスしてください。",
+        "ru": "Вернитесь назад, либо перейдите на ",
+        "de": "Versuchen Sie, dorthin zurückzukehren, wo Sie sind, oder dorthin zu gehen",
+        "fr": "Essayez de retourner là où vous étiez ou de vous diriger vers",
+        "es": "Intenta volver hacia el lugar anterior",
+        "it": "Prova a tornare dove eri o vai alla"
     },
     "Sorry, Your search height, hash, address or transaction id does not exist.": {
-        "en": "Sorry, Your search height, hash, address or transaction id does not exist.",
-        "zh": "对不起, 您查找的区块高度、哈希、地址或交易 ID 不存在。"
+        "en": "Sorry, the search height, hash, address or transaction id you are looking for does not exist.",
+        "zh": "对不起, 您查找的区块高度、哈希、地址或交易 ID 不存在。",
+        "ko": "죄송합니다. 요청하신 블록 높이, 해시, 주소혹은 거래 ID가 존재하지 않습니다.",
+        "ja": "申し訳ありませんが、検索しているブッロクの高さ、ハッシュ、アドレス、またはトランザクションIDは存在しません。",
+        "ru": "Высота блока, хэш,адрес или ID транзакции не существует",
+        "de": "Die gesuchte Blockhöhe, der Hash, die Adresse oder die Transaktions-ID ist leider nicht vorhanden.",
+        "fr": "Désolé, la hauteur, le hash, ou l'adresse que vous avez recherché n'existent pas.",
+        "es": "Lo siento, la busqueda de altura, hash, Dirección o Transacción que buscas no existe",
+        "it": "Siamo spiacenti, L'altezza blocco, hash, indirizzo o transazione id cercata non esiste."
     },
     "home page": {
         "en": "home page",
-        "zh": "主页"
+        "zh": "主页",
+        "ko": "홈페이지",
+        "ja": "ホームページ",
+        "ru": "Главная",
+        "de": "Startseite",
+        "fr": "Page d'accueil",
+        "es": "Página de inicio",
+        "it": "home page"
     },
     "Back home": {
         "en": "Back home",
-        "zh": "返回主页"
+        "zh": "返回主页",
+        "ko": "홈 페이지로 돌아가기",
+        "ja": "ホームページに戻る",
+        "ru": "Вернуться на главную",
+        "de": "Zurück zur Startseite",
+        "fr": "Retour à la page d'accueil",
+        "es": "Volver al inicio",
+        "it": "Torna alla home"
     },
     "Transaction hash": {
         "en": "Transaction hash",
-        "zh": "交易哈希"
+        "zh": "交易哈希",
+        "ko": "거래 해시",
+        "ja": "トランザクションハッシュ",
+        "ru": "Хэш транзакции",
+        "de": "Transaktions-Hash",
+        "fr": "Hash de transaction",
+        "es": "Transacción hash",
+        "it": "Hash transazione"
     },
     "NetworkFee": {
         "en": "NetworkFee",
-        "zh": "网络费用"
+        "zh": "网络费用",
+        "ko": "네트워크 비용",
+        "ja": "ネットワーク料金",
+        "ru": "Вознаграждение сети",
+        "de": "Netzwerkgebühren",
+        "fr": "Frais Réseau",
+        "es": "Tarifa de Red",
+        "it": "Commissione di rete"
     },
     "SystemFee": {
         "en": "SystemFee",
-        "zh": "系统费用"
+        "zh": "系统费用",
+        "ko": "시스템 비용",
+        "ja": "システム料金",
+        "ru": "Вознаграждение системы",
+        "de": "Systemkosten",
+        "fr": "Frais Système",
+        "es": "Tarifa de Sistema",
+        "it": "Commissione di sistema"
     },
     "Invocation script": {
         "en": "Invocation script",
-        "zh": "调用脚本"
+        "zh": "调用脚本",
+        "ko": "호출 스크립트",
+        "ja": "スクリプトを呼出す",
+        "ru": "Invocation script",
+        "de": "Skript aufrufen",
+        "fr": "Script d'invocation",
+        "es": "Guion de invocación",
+        "it": "Script di invocazione"
     },
     "Verification script": {
         "en": "Verification script",
-        "zh": "验证脚本"
+        "zh": "验证脚本",
+        "ko": "검증 스크립트",
+        "ja": "スクリプトを検証する",
+        "ru": "Verification script",
+        "de": "Überprüfungsskript",
+        "fr": "Script de vérification",
+        "es": "Guion de verificación",
+        "it": "Script di verifica"
     },
     "No": {
         "en": "Page",
-        "zh": "第"
+        "zh": "第",
+        "ko": "페이지",
+        "ja": "ページ",
+        "ru": "Страница",
+        "de": "Seite ",
+        "fr": "Page",
+        "es": "Página",
+        "it": "pagina"
     },
     "of": {
         "en": "of",
-        "zh": "共"
+        "zh": "共",
+        "ko": "/",
+        "ja": "/",
+        "ru": "из",
+        "de": "von",
+        "fr": "de",
+        "es": "de",
+        "it": "di"
     },
     "page": {
         "en": "",
-        "zh": "页"
+        "zh": "页",
+        "ko": "",
+        "ja": "",
+        "ru": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "it": ""
     },
     "page,": {
         "en": "",
-        "zh": "页,"
+        "zh": "页,",
+        "ko": "",
+        "ja": "",
+        "ru": "",
+        "de": "",
+        "fr": "",
+        "es": "",
+        "it": ""
     },
     "Previous": {
         "en": "Previous",
-        "zh": "上一页"
+        "zh": "上一页",
+        "ko": "이전 페이지",
+        "ja": "前",
+        "ru": "Предыдущая",
+        "de": "Vorherige Seite",
+        "fr": "Précédente",
+        "es": "Previo",
+        "it": "Precedente"
     },
     "Next": {
         "en": "Next",
-        "zh": "下一页"
+        "zh": "下一页",
+        "ko": "다음 페이지",
+        "ja": "次",
+        "ru": "Следущая",
+        "de": "Nächste Seite",
+        "fr": "Suivante",
+        "es": "Siguiente",
+        "it": "Successivo"
     },
     "Asset register information": {
         "en": "Asset register information",
-        "zh": "资产注册信息"
+        "zh": "资产注册信息",
+        "ko": "자산 등록 정보",
+        "ja": "資産台帳情報",
+        "ru": "Сведения об активе",
+        "de": "Informationen zur Asset-Registrierung",
+        "fr": "Information du registre d'actif",
+        "es": "Activo información registro",
+        "it": "Informazioni registro asset"
     },
     "Non-Fungible Token Explorer": {
         "en": "Non-Fungible Token Explorer",
-        "zh": "Non-Fungible Token Explorer"
+        "zh": "Non-Fungible Token Explorer",
+        "ko": "대체 불가능 토큰 탐험가",
+        "ja": "NFTエクスプローラー",
+        "ru": "Обозреватель NFT",
+        "de": "Nicht fungibler Token Explorer",
+        "fr": "Explorateur NFT",
+        "es": "Infungible Token explorador",
+        "it": "Explorer NFT"
     },
     "Projects": {
         "en": "Projects",
-        "zh": "项目"
+        "zh": "项目",
+        "ko": "프로젝트",
+        "ja": "プロジェクト",
+        "ru": "Проекты",
+        "de": "Projekt",
+        "fr": "Projets",
+        "es": "Proyecto",
+        "it": "Progetti"
     },
     "Explore NFTs": {
         "en": "Explore NFTs",
-        "zh": "Explore NFTs"
+        "zh": "Explore NFTs",
+        "ko": "NFTs 탐색",
+        "ja": "NFTを探索する",
+        "ru": "Смотреть NFT",
+        "de": "Entdecken Sie NFTs",
+        "fr": "Explorer NFTs",
+        "es": "Explorador NFTs",
+        "it": "Esplora NFT"
     },
     "Holders": {
         "en": "Holders",
-        "zh": "持有者"
+        "zh": "持有者",
+        "ko": "소유자",
+        "ja": "保有者",
+        "ru": "Держатели",
+        "de": "Halter",
+        "fr": "Titulaires",
+        "es": "Poseedor",
+        "it": "Portatori"
     },
     "Transfers": {
         "en": "Transfers",
-        "zh": "交易量"
+        "zh": "交易量",
+        "ko": "거래량",
+        "ja": "トランザクションの数",
+        "ru": "Переводы",
+        "de": "Handelsvolumen",
+        "fr": "Transferts",
+        "es": "Transferir",
+        "it": "Trasferimenti"
     },
     "Overview": {
         "en": "Overview",
-        "zh": "概述"
+        "zh": "概述",
+        "ko": "개요",
+        "ja": "概要",
+        "ru": "Обзор",
+        "de": "Überblick",
+        "fr": "Aperçu",
+        "es": "La descripción general",
+        "it": "Panoramica"
     },
     "Social profiles": {
         "en": "Social profiles",
-        "zh": "社交账号"
+        "zh": "社交账号",
+        "ko": "소셜 프로필",
+        "ja": "ソーシャルプロフィール",
+        "ru": "Соц.профили",
+        "de": "Soziale Profile",
+        "fr": "Profils sociaux",
+        "es": "Perfil Social ",
+        "it": "Profili social"
     },
     "Official site": {
         "en": "Official site",
-        "zh": "官网"
+        "zh": "官网",
+        "ko": "공식 웹사이트",
+        "ja": "公式サイト",
+        "ru": "Официальная страница",
+        "de": "Offizielle Website",
+        "fr": "Site officiel",
+        "es": "Sitio oficial",
+        "it": "Sito ufficiale"
     },
     "Launch Date": {
         "en": "Launch Date",
-        "zh": "发行日期"
+        "zh": "发行日期",
+        "ko": "발행 날짜",
+        "ja": "発売日",
+        "ru": "Дата запуска",
+        "de": "start Datum",
+        "fr": "Date de lancement",
+        "es": "Fecha de Lanzamiento",
+        "it": "Data di Lancio"
     },
     "Contract": {
         "en": "Contract",
-        "zh": "合约"
+        "zh": "合约",
+        "ko": "계약",
+        "ja": "コントラクト",
+        "ru": "Договор",
+        "de": "Vertrag",
+        "fr": "Contrat",
+        "es": "Contrato",
+        "it": "Contratto"
     },
     "NFT Assets": {
         "en": "NFT Assets",
-        "zh": "NFT 资产"
+        "zh": "NFT 资产",
+        "ko": "NFT 자산",
+        "ja": "NFT資産",
+        "ru": "NFT активы",
+        "de": "NFT-Vermögenswerte",
+        "fr": "Actifs NFT",
+        "es": "NFT Activos",
+        "it": "Asset NFT"
     },
     "No data": {
         "en": "No data",
-        "zh": "暂无数据"
+        "zh": "暂无数据",
+        "ko": "데이터 없음",
+        "ja": "データなし",
+        "ru": "Данных нет",
+        "de": "Keine Daten",
+        "fr": "Pas de données",
+        "es": "Ningún t datos",
+        "it": "Nessun dato"
     },
     "Transactions per day": {
         "en": "Transactions per day",
-        "zh": "每日交易量"
+        "zh": "每日交易量",
+        "ko": "일일 거래량",
+        "ja": "1日あたりのトランザクション",
+        "ru": "Транзакций в день",
+        "de": "Tägliches Transaktionsvolumen",
+        "fr": "Transactions par jour",
+        "es": "Numero de transacción por día",
+        "it": "Transazioni per giorno"
     },
     "Assets List": {
         "en": "Assets List",
-        "zh": "资产列表"
+        "zh": "资产列表",
+        "ko": "자산목록표",
+        "ja": "資産一覧",
+        "ru": "Список активов",
+        "de": "Asset-Liste",
+        "fr": "Liste des actifs",
+        "es": "Lista de Activos",
+        "it": "Lista Asset"
     },
     "GAS rank": {
         "en": "GAS rank",
-        "zh": "GAS 排名"
+        "zh": "GAS 排名",
+        "ko": "GAS 랭크",
+        "ja": "GASランキング",
+        "ru": "Ранжирование GAS",
+        "de": "GAS-Rangliste",
+        "fr": "Rang de GAS",
+        "es": "GAS rango",
+        "it": "Classifica GAS"
     },
     "Neo rank": {
         "en": "Neo rank",
-        "zh": "Neo 排名"
+        "zh": "Neo 排名",
+        "ko": "NEO 랭크",
+        "ja": "NEOランキング",
+        "ru": "Ранжирование NEO",
+        "de": "Neo-Rangliste",
+        "fr": "Rang de NEO",
+        "es": "Neo Rango",
+        "it": "Classifica Neo"
     },
     "DEX on Ethereum, EOS and NEO blockchains": {
         "en": "DEX on Ethereum, EOS and NEO blockchains",
-        "zh": "基于Neo、Ethereum、EOS 的首个跨链去中心化金融平台"
+        "zh": "基于Neo、Ethereum、EOS 的首个跨链去中心化金融平台",
+        "ko": "Ethereum, EOS 및 NEO 블록체인에 대한 DEX",
+        "ja": "Neo、Ethereum、およびEOSに基づく世界初のクロスチェーン分散型金融プラットフォーム",
+        "ru": "Первая DEX на Эфире, EOS, Neo",
+        "de": "Die erste kettenübergreifende dezentrale Finanzplattform, die auf Neo, Ethereum und EOS basiert",
+        "fr": "DEX sur les blockchains Ethereum, EOS et NEO",
+        "es": "DEX en Ethereum, EOS y Neo Cadenas de bloques ",
+        "it": "DEX su blockchain Ethereum, EOS e NEO"
     },
     "O3, A leadingcrypto wallet, gateway to the Smart Economy": {
         "en": "O3, A leadingcrypto wallet, gateway to the Smart Economy",
-        "zh": "O3, 最受欢迎的Neo钱包之一，智能经济入口"
+        "zh": "O3, 最受欢迎的Neo钱包之一，智能经济入口",
+        "ko": "O3， 선도적인 크립토 지갑.스마트 이코노미의 관문",
+        "ja": "スマートエコノミーへの入り口として、O3は人気のある主な暗号化ウォレット",
+        "ru": "O3 - лидирующий криптокошелек, вход в Умную Экономику",
+        "de": "O3, eine der beliebtesten Neo-Geldbörsen, ein intelligentes Wirtschaftsportal",
+        "fr": "O3, un portefeuille crypto leader, porte d'entrée vers l'économie intelligente",
+        "es": "O3, Un leader en monedero de crypto, la entrada a economía inteligente",
+        "it": "O3, Portafoglio crypto leader, portale di accesso alla Smart Economy"
     },
     "Integrated financial services platform": {
         "en": "Integrated financial services platform",
-        "zh": "集成式金融服务平台"
+        "zh": "集成式金融服务平台",
+        "ko": "통합형 금융 서비스 플랫폼",
+        "ja": "総合金融サービスプラットフォーム",
+        "ru": "Встроенная платформа финансовых услуг",
+        "de": "Integrierte Finanzdienstleistungsplattform",
+        "fr": "Plateforme de services financiers intégrée",
+        "es": "Una plataforma de servisios integrado",
+        "it": "Piattaforma di servizi finanziari integrata"
     },
     "Keep up-to-date with the latest ecosystem news": {
         "en": "Keep up-to-date with the latest ecosystem news",
-        "zh": "随时了解最新的Neo生态系统新闻"
+        "zh": "随时了解最新的Neo生态系统新闻",
+        "ko": "최신 네오 생태시스템 뉴스 수시로 알아보기",
+        "ja": "最新のエコシステムニュースを最新の状態に保つ",
+        "ru": "Получайте новости экосистемы",
+        "de": "Bleiben Sie mit den neuesten Nachrichten zum Neo-Ökosystem auf dem Laufenden",
+        "fr": "Restez au courant des dernières nouvelles de l'écosystème",
+        "es": "Mantente enterado de las ultimas noticia del ecosistema",
+        "it": "Mantieniti aggiornato con le ultime news dell'ecosistema"
     },
     "Contact us": {
         "en": "Contact us",
-        "zh": "联系我们"
+        "zh": "联系我们",
+        "ko": "연락처",
+        "ja": "お問い合わせ",
+        "ru": "Связаться с нами",
+        "de": "kontaktiere uns",
+        "fr": "Nous contacter",
+        "es": "Contáctenos",
+        "it": "Contattaci"
     },
     "Partners": {
         "en": "Partners",
-        "zh": "合作伙伴"
+        "zh": "合作伙伴",
+        "ko": "파트너",
+        "ja": "パートナー",
+        "ru": "Партнеры",
+        "de": "Partner",
+        "fr": "Partenaires",
+        "es": "Socios",
+        "it": "Partner"
     },
     "Feedback": {
         "en": "Feedback",
-        "zh": "反馈"
+        "zh": "反馈",
+        "ko": "피드백",
+        "ja": "フィードバック",
+        "ru": "Обратная связь",
+        "de": "Feedback",
+        "fr": "Commentaire",
+        "es": "Retroalimentación",
+        "it": "Invia feedback"
     },
     "Donation": {
         "en": "Donation",
-        "zh": "捐献"
+        "zh": "捐献",
+        "ko": "기증",
+        "ja": "寄付",
+        "ru": "Донаты",
+        "de": "Spenden",
+        "fr": "Don",
+        "es": "Donación",
+        "it": "Donazioni"
     },
     "Cooperation": {
         "en": "Cooperation",
-        "zh": "合作"
+        "zh": "合作",
+        "ko": "협력",
+        "ja": "協力",
+        "ru": "Сотрудничество",
+        "de": "Zusammenarbeit",
+        "fr": "Coopération",
+        "es": "Cooperación",
+        "it": "Collabora con noi"
     },
     "Discover the Ecosystem": {
         "en": "Discover the Ecosystem",
-        "zh": "探索生态系统"
+        "zh": "探索生态系统",
+        "ko": "생태시스템 탐색",
+        "ja": "生態系を発見する",
+        "ru": "Узнайте больше об экосистеме",
+        "de": "Entdecken Sie das Ökosystem",
+        "fr": "Découvrir l'écosystème",
+        "es": "Escubre el Ecosytema",
+        "it": "Scopri l'Ecosistema"
     },
     "Awesome apps": {
         "en": "Awesome apps",
-        "zh": "精选应用"
+        "zh": "精选应用",
+        "ko": "응용 앱",
+        "ja": "宝アプリ",
+        "ru": "Избранные приложения",
+        "de": "Ausgewählte Apps",
+        "fr": "Applis géniales",
+        "es": "Apps genial",
+        "it": "App stupende"
     },
     "broadcast1": {
         "en": "【Announcement】NeoTube block explorer is fully upgraded",
-        "zh": "【公告】NeoTube 区块浏览器全面升级"
+        "zh": "【公告】NeoTube 区块浏览器全面升级",
+        "ko": "【공고】Neotube블록 브라우저 전면 업그레이드",
+        "ja": "【お知らせ】 NeoTubeブロックエクスプローラーが完全にアップグレードされました",
+        "ru": "【Уведомление】 Обозреватель блоков NeoTube обновлен ",
+        "de": "【Ankündigung】 Der NeoTube-Block-Explorer wurde vollständig aktualisiert",
+        "fr": "【Annonce】 NeoTube bloc explorateur est entièrement mis à jour",
+        "es": "【Anuncio】 NeoTube Bloque está completamente actualizado",
+        "it": "【Annuncio】 L'aggiornamento del block explorer NeoTube è stato completato"
     },
     "broadcast2": {
         "en": "【Look for Volunteer Translator】CREATE ENJOY SHARE jointly with NeoTube",
-        "zh": "【招募平台翻译志愿者】，NeoTube邀你一起创造、体验和分享！"
+        "zh": "【招募平台翻译志愿者】，NeoTube邀你一起创造、体验和分享！",
+        "ko": "【플랫폼 통역 자원봉사자 모집】，Neotube함께 창조하고 체험하고 나누기를 바랍니다!",
+        "ja": "【ボランティア翻訳者を探す】 NeoTubeと共に一緒に成長しましょう",
+        "ru": "【Набираем волонтеров-переводчиков】 Создавай, раздавай, радуйся вместе с NeoTube!",
+        "de": "NeoTube lädt Sie ein, gemeinsam zu erstellen, zu erleben und zu teilen!",
+        "fr": "【Recherche de traducteurs bénévoles】 CRÉÉR PRENDRE PLAISIR PARTAGER conjointement avec NeoTube",
+        "es": "【Se busca traductor voluntario】 CREAR DISFRUTA Comparte con NeoTube",
+        "it": "【Cercasi Traduttori Volontari】 CREA DIVERTITI CONDIVIDI insieme a NeoTube"
+    },
+    "Bytes": {
+        "en": "Bytes",
+        "zh": "字节",
+        "ko": "바이트",
+        "ja": "バイト",
+        "ru": "Байтов",
+        "de": "Bytes",
+        "fr": "Octets",
+        "es": "Bytes",
+        "it": "Byte"
     }
 }

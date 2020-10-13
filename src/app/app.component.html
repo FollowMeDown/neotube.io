@@ -30,7 +30,8 @@
                             {{'GAS rank' | translate: lang}}</li>
                     </ul>
                 </li>
-                <li routerLink="/tokens-nft" [ngClass]="{active: currentPage.indexOf('/tokens-nft')>=0}">Explore NFT
+                <li routerLink="/tokens-nft" [ngClass]="{active: currentPage.indexOf('/tokens-nft')>=0}">
+                    {{ 'Explore NFTs' | translate: lang }}
                 </li>
             </ul>
             <ul class="header-right">
@@ -39,8 +40,22 @@
                         [(ngModel)]="searchVal" (keyup.enter)="search()"><button (click)="search()"><img
                             src="/assets/images/search.png" alt="search"></button>
                 </li>
-                <li class="lang"><span [ngClass]="{active: lang === 'en'}" (click)="changeLang('en')">EN</span><span
-                        [ngClass]="{active: lang === 'zh'}" (click)="changeLang('zh')">中文</span>
+                <li class="lang">
+                    <div class="selected-lang" (click)="showLangDropdown = !showLangDropdown">{{ lang.toUpperCase() }}<img
+                            [ngClass]="{active: showLangDropdown}" src="/assets/images/lang-down.png"></div>
+                    <section class="cover-bg" [ngClass]="{showDropdown: showLangDropdown}"
+                        (click)="showLangDropdown = false"></section>
+                    <ul class="cover-content" [ngClass]="{showDropdown: showLangDropdown}">
+                        <li (click)="changeLang('zh')" [ngClass]="{active: lang==='zh'}">中文</li>
+                        <li (click)="changeLang('en')" [ngClass]="{active: lang==='en'}">English</li>
+                        <li (click)="changeLang('ko')" [ngClass]="{active: lang==='ko'}">한국어</li>
+                        <li (click)="changeLang('ja')" [ngClass]="{active: lang==='ja'}">日本語</li>
+                        <li (click)="changeLang('ru')" [ngClass]="{active: lang==='ru'}">русский</li>
+                        <li (click)="changeLang('de')" [ngClass]="{active: lang==='de'}">Deutsch</li>
+                        <li (click)="changeLang('fr')" [ngClass]="{active: lang==='fr'}">français</li>
+                        <li (click)="changeLang('es')" [ngClass]="{active: lang==='es'}">Español</li>
+                        <li (click)="changeLang('it')" [ngClass]="{active: lang==='it'}">Italiano</li>
+                    </ul>
                 </li>
                 <li class="net"><span [ngClass]="{active: net === 'mainnet'}"
                         (click)="changeNet('mainnet')">{{'MainNet' | translate: lang}}</span><span
@@ -77,7 +92,8 @@
                             {{'GAS rank' | translate: lang}}</li>
                     </ul>
                 </li>
-                <li routerLink="/tokens-nft" [ngClass]="{active: currentPage.indexOf('/tokens-nft')>=0}">Explore NFT
+                <li routerLink="/tokens-nft" [ngClass]="{active: currentPage.indexOf('/tokens-nft')>=0}">
+                    {{ 'Explore NFTs' | translate: lang }}
                 </li>
             </ul>
         </nav>
@@ -117,7 +133,8 @@
                         </ul>
                     </li>
                     <li (click)="showDropdown = false" routerLink="/tokens-nft"
-                        [ngClass]="{active: currentPage.indexOf('/tokens-nft')>=0}">Explore NFT</li>
+                        [ngClass]="{active: currentPage.indexOf('/tokens-nft')>=0}">
+                        {{ 'Explore NFTs' | translate: lang }}</li>
                 </ul>
             </div>
         </nav>
@@ -130,9 +147,28 @@
 
     <footer>
         <div class="lang-net">
-            <div class="left">
+            <!-- <div class="left">
                 <div class="lang"><span [ngClass]="{active: lang === 'en'}" (click)="changeLang('en')">EN</span><span
                         [ngClass]="{active: lang === 'zh'}" (click)="changeLang('zh')">中文</span>
+                </div>
+            </div> -->
+            <div class="left">
+                <div class="lang">
+                    <div class="selected-lang" (click)="showFooterLangDropdown = !showFooterLangDropdown">{{ lang.toUpperCase() }}<img
+                            [ngClass]="{active: showFooterLangDropdown}" src="/assets/images/lang-down-footer.svg"></div>
+                    <section class="cover-bg" [ngClass]="{showDropdown: showFooterLangDropdown}"
+                        (click)="showFooterLangDropdown = false"></section>
+                    <ul class="cover-content" [ngClass]="{showDropdown: showFooterLangDropdown}">
+                        <li (click)="changeLang('zh')" [ngClass]="{active: lang==='zh'}">中文</li>
+                        <li (click)="changeLang('en')" [ngClass]="{active: lang==='en'}">English</li>
+                        <li (click)="changeLang('ko')" [ngClass]="{active: lang==='ko'}">한국어</li>
+                        <li (click)="changeLang('ja')" [ngClass]="{active: lang==='ja'}">日本語</li>
+                        <li (click)="changeLang('ru')" [ngClass]="{active: lang==='ru'}">русский</li>
+                        <li (click)="changeLang('de')" [ngClass]="{active: lang==='de'}">Deutsch</li>
+                        <li (click)="changeLang('fr')" [ngClass]="{active: lang==='fr'}">français</li>
+                        <li (click)="changeLang('es')" [ngClass]="{active: lang==='es'}">Español</li>
+                        <li (click)="changeLang('it')" [ngClass]="{active: lang==='it'}">Italiano</li>
+                    </ul>
                 </div>
             </div>
             <div class="right">
