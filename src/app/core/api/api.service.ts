@@ -15,7 +15,7 @@ export class ApiService {
     lineTShirtAssetId2 = '4487328b1e1ae8f73c7dab0595caf35118c2911a';
 
     constructor(private http: HttpClient) {
-        if (location.origin === this.testOrigin) {
+        if (location.origin.indexOf('testnet') > 0) {
             this.net = 'testnet';
             this.apiDo = environment.apiDotest;
         }
